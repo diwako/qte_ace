@@ -1,0 +1,39 @@
+name = "QTE ACE"
+prefix = "qte_ace"
+author = "Diwako"
+mainprefix = "z"
+
+[version]
+path = "addons/main/script_version.hpp"
+git_hash = 0
+
+[files]
+include = [
+    "meta.cpp",
+    "mod.cpp",
+    "license.txt",
+    "logolarge.paa",
+    "logosmall.paa",
+]
+exclude = ["*.psd", "*.png", "*.tga"]
+
+[hemtt.launch.default]
+workshop = [
+    "450814997", # CBA_A3's Workshop ID
+    "463939057", # ACE3
+    "2369477168", # Advanced developer tools
+]
+parameters = ["-world=empty"]
+
+[hemtt.signing]
+authority = "qte_ace"
+
+[hemtt.release]
+folder = "qte_ace"
+
+[lints.stringtables.sorted]
+options.only-lang = true
+
+[lints.sqf.var_all_caps]
+enabled = true
+options.ignore = []

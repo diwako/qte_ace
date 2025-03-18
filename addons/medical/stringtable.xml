@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="qte_ace">
+    <Package name="medical">
+        <Key ID="STR_QTE_ACE_Medical_Category">
+            <English>QTE ACE - Medical</English>
+        </Key>
+    </Package>
+</Project>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="qte_ace">
+    <Package name="main">
+        <Key ID="STR_QTE_ACE_main_enable">
+            <English>Enable QTE</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_enable_desc">
+            <English>Enable QTE</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_difficulty">
+            <English>Difficulty</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_difficulty_desc">
+            <English>Higher values means more inputs thus higher difficulty, recuding the value means easier QTEs</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_qte_type">
+            <English>QTE Types</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_qte_type_desc">
+            <English>Choose which kind of QTEs should be used</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_qte_type_all">
+            <English>All</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_qte_type_arrows">
+            <English>Arrows</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_qte_type_words">
+            <English>Words and phrases</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_resetUponIncorrectInput">
+            <English>Reset on wrong input</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_resetUponIncorrectInput_desc">
+            <English>Resets the whole QTE if you press one wrong button, that means you need to start over</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_tries">
+            <English>Amount of tries</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_tries_desc">
+            <English>Each time you press a wrong button you lose a try, if you exceed the number of allowed tries, you fail. Set 0 to have unlimited tries</English>
+        </Key>
+    </Package>
+</Project>
