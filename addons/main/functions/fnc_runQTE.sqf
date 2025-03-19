@@ -8,8 +8,8 @@ params [
     ["_tries", 0, [0]],
     ["_args", []],
     ["_text", "", [""]],
-    ["_resetUponIncorrectInput", true, [false]]
-    // ["_dunno", []]
+    ["_resetUponIncorrectInput", true, [false]],
+    ["_dunno", []]
 ];
 private _sequence = [];
 switch (typeName _length) do {
@@ -24,10 +24,15 @@ if (_sequence isEqualTo []) exitWith {
     false
 };
 
+GVAR(resetCount) = 0;
+
+private _args = [_maxTime, _tries, _args, _success, _fail, _progress, _text, _dunno];
+
 private _display = [_sequence, _maxTime, _tries, _text] call FUNC(createDisplay);
 [_display] call FUNC(hijack);
+[_args, nil, [], nil, false] call FUNC(qteDisplay);
 [
-    [_maxTime, _tries, _args, _success, _fail, _progress, _text, _dunno], // args
+    _args, // args
     // fail condition
     FUNC(qteProgress),
     // on display

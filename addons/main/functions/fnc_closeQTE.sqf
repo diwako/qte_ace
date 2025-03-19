@@ -31,12 +31,20 @@ if (_isWin) then {
     _x ctrlCommit 0;
 } forEach (_display getVariable QGVAR(ctrlArrows));
 
-private _text = _display getVariable QGVAR(ctrlText);
+private _text = _display getVariable [QGVAR(ctrlText), controlNull];
 if !(isNull _text) then {
     _text ctrlSetFade 0;
     _text ctrlCommit 0;
     _text ctrlSetFade 1;
     _text ctrlCommit 0.1;
+};
+
+private _tries = _display getVariable [QGVAR(ctrlTries), controlNull];
+if !(isNull _tries) then {
+    _tries ctrlSetFade 0;
+    _tries ctrlCommit 0;
+    _tries ctrlSetFade 1;
+    _tries ctrlCommit 0.1;
 };
 
 [{
