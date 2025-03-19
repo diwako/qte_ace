@@ -2,7 +2,7 @@
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"
 params [["_display", displayNull]];
 _display displayAddEventHandler ["KeyDown", {
-    params ["_displayOrControl", "_key", "_shift", "_ctrl", "_alt"];
+    params ["", "_key"];
     if (_key == DIK_ESCAPE && {alive player}) exitWith {
         GVAR(escPressed) = true;
     };

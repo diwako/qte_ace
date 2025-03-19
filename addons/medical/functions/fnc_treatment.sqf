@@ -181,7 +181,7 @@ if (qte_ace_medical_enable && !cba_quicktime_qteShorten) then {
         _newFailure,
         _callbackProgress,
         _treatmentTime,
-        qte_ace_medical_tries,
+        floor qte_ace_medical_tries,
         [_medic, _patient, _bodyPart, _classname, _itemUser, _usedItem, _createLitter],
         getText (_config >> "displayNameProgress"),
         qte_ace_medical_resetUponIncorrectInput,

@@ -39,6 +39,6 @@
     "SLIDER",
     [ELSTRING(main,tries), ELSTRING(main,tries_desc)],
     LSTRING(Category),
-    [0, 100, 0, 0],
+    [0, 100, 3, 0],
     false
 ] call CBA_fnc_addSetting;

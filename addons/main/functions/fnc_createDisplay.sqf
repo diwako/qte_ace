@@ -71,6 +71,18 @@ if (_text isNotEqualTo "") then {
     _ctrl ctrlCommit 0.25;
 };
 
+if (_tries > 0) then {
+    private _ctrl = _display ctrlCreate ["RscStructuredText", -1];
+    _display setVariable [QGVAR(ctrlTries), _ctrl];
+    _ctrl ctrlSetStructuredText parseText format ["<t size='1' shadow='1' valign='middle' align='right'>%1/%1</t>", _tries];
+    _ctrl ctrlSetPosition [0.5 - (_boxWidth / 2), 0.5 - _boxHeight / 2 - _gridHeight * 3, _boxWidth, _gridHeight * 3];
+    _ctrl ctrlSetTextColor [1, 1, 1, 1];
+    _ctrl ctrlSetFade 1;
+    _ctrl ctrlCommit 0;
+    _ctrl ctrlSetFade 0;
+    _ctrl ctrlCommit 0.25;
+};
+
 private _arrowY = _gridHeight;
 private _minBoxX = _arrowWidth / 2;
 private _maxBoxX = (_maxArrowsPerRow + 1) * _arrowWidth - _minBoxX;
@@ -89,12 +101,11 @@ for "_i" from 1 to _length do {
     private _curSeq = _qteSequence select (_i - 1);
     if (_curSeq in "↑↓→←") then {
         _ctrl = _display ctrlCreate ["RscPicture", -1, _ctrlGrp];
-        _ctrl ctrlSetText '\a3\3den\data\controlsgroups\tutorial\next_ca.paa';
         switch (_curSeq) do {
-            case "↑": { _ctrl ctrlSetAngle [270, 0.5, 0.5, true] };
-            case "↓": { _ctrl ctrlSetAngle [90, 0.5, 0.5, true] };
-            case "→": { _ctrl ctrlSetAngle [0, 0.5, 0.5, true] };
-            case "←": { _ctrl ctrlSetAngle [180, 0.5, 0.5, true] };
+            case "↑": { _ctrl ctrlSetText QPATHTOF(ui\arrows\up.paa)  };
+            case "↓": { _ctrl ctrlSetText QPATHTOF(ui\arrows\down.paa) };
+            case "→": { _ctrl ctrlSetText QPATHTOF(ui\arrows\right.paa) };
+            case "←": { _ctrl ctrlSetText QPATHTOF(ui\arrows\left.paa)  };
             default {};
         };
         _ctrl ctrlSetPosition [_xPos, _arrowY + (_arrowRowNum * (_arrowHeight + _arrowY)), _arrowWidth, _arrowHeight];
