@@ -5,13 +5,13 @@
             <English>Enable QTE</English>
         </Key>
         <Key ID="STR_QTE_ACE_main_enable_desc">
-            <English>Enable QTE</English>
+            <English>Enables QTE substitution for the ACE3 module</English>
         </Key>
         <Key ID="STR_QTE_ACE_main_difficulty">
             <English>Difficulty</English>
         </Key>
         <Key ID="STR_QTE_ACE_main_difficulty_desc">
-            <English>Higher values means more inputs thus higher difficulty, recuding the value means easier QTEs</English>
+            <English>Higher values mean more inputs thus higher difficulty, reducing the value means easier QTEs</English>
         </Key>
         <Key ID="STR_QTE_ACE_main_qte_type">
             <English>QTE Types</English>
