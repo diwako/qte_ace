@@ -6,16 +6,16 @@
             <French>Activer les QTE</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_enable_desc">
-            <English>Enable QTE</English>
-            <French>Activer les QTE</French>
+            <English>Enables QTE substitution for the ACE3 module</English>
+            <French>Permet la substitution de QTE pour le module ACE3</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_difficulty">
             <English>Difficulty</English>
             <French>Difficultés</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_difficulty_desc">
-            <English>Higher values means more inputs thus higher difficulty, recuding the value means easier QTEs</English>
-            <French>Des valeurs plus élevées signifient plus d'entrées et donc une plus grande difficulté, des valeurs plus faibles signifient des QTE plus faciles.</French>
+            <English>Higher values mean more inputs thus higher difficulty, reducing the value means easier QTEs</English>
+            <French>Une valeur élevée signifie plus d'entrées et donc une plus grande difficulté, une valeur réduite signifie des QTE plus faciles.</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_qte_type">
             <English>QTE Types</English>
