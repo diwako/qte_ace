@@ -1,10 +1,10 @@
 name = "QTE ACE {version}";
-// picture = "logolarge.paa";
+picture = "logolarge.paa";
 actionName = "Website";
 action = "https://github.com/diwako/qte_ace";
-// logoSmall = "logolarge.paa";
-// logo = "logosmall.paa";
-// logoOver = "logosmall.paa";
+logoSmall = "logolarge.paa";
+logo = "logosmall.paa";
+logoOver = "logosmall.paa";
 tooltip = "QTE ACE";
 tooltipOwned = "QTE ACE";
 description = "QTE ACE";
