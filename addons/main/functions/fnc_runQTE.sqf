@@ -43,4 +43,6 @@ private _display = [_sequence, _maxTime, _tries, _text] call FUNC(createDisplay)
     FUNC(qteFail),
     _sequence,
     _resetUponIncorrectInput
-] call CBA_fnc_runQTE
+] call CBA_fnc_runQTE;
+
+true

@@ -11,7 +11,6 @@ if (missionNamespace isNil _function) then {
 if (_function isEqualTo {}) then {
     _function = {true};
 };
-diw_debug = _function;
 while {[_args, _maxtime+1, _maxtime] call _function} do {
     // uhuh, i hope this aint thaat bad huh?
 };
