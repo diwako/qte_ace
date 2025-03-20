@@ -9,7 +9,7 @@ params [
     ["_args", []],
     ["_text", "", [""]],
     ["_resetUponIncorrectInput", true, [false]],
-    ["_dunno", []]
+    ["_aceExpections", []]
 ];
 private _sequence = [];
 switch (typeName _length) do {
@@ -26,13 +26,13 @@ if (_sequence isEqualTo []) exitWith {
 
 GVAR(resetCount) = 0;
 
-private _args = [_maxTime, _tries, _args, _success, _fail, _progress, _text, _dunno];
+private _argsDisplay = [_maxTime, _tries, _args, _success, _fail, _progress, _text, _aceExpections];
 
 private _display = [_sequence, _maxTime, _tries, _text] call FUNC(createDisplay);
 [_display] call FUNC(hijack);
-[_args, nil, [], nil, false] call FUNC(qteDisplay);
+[_argsDisplay, nil, [], nil, false] call FUNC(qteDisplay);
 [
-    _args, // args
+    _argsDisplay, // args
     // fail condition
     FUNC(qteProgress),
     // on display

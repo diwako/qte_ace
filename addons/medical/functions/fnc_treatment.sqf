@@ -144,10 +144,11 @@ if (_callbackProgress isEqualTo {}) then {
 
 if (qte_ace_medical_enable && !cba_quicktime_qteShorten) then {
     private _newSuccess = {
-        params ["_args"];
+        params ["_args", "_elapsedTime"];
         ace_medical_gui_pendingReopen = qte_ace_medical_medicMenuWasOpen;
-        _args params ["", "", "_aceArgs"];
-        [_aceArgs] call FUNC(treatmentSuccess);
+        _args params [["_maxTime", 0], "", "_aceArgs"];
+        [_aceArgs, _maxTime] call qte_ace_medical_fnc_handleSurgicalKit;
+        [_aceArgs, _maxTime, _maxTime, 0] call FUNC(treatmentSuccess);
     };
 
     private _newFailure = {
@@ -156,9 +157,10 @@ if (qte_ace_medical_enable && !cba_quicktime_qteShorten) then {
         ace_medical_gui_pendingReopen = qte_ace_medical_medicMenuWasOpen;
         _args params ["_maxTime", "", "_aceArgs"];
         if (_elapsedTime >= _maxTime) then {
-            [_aceArgs] call FUNC(treatmentSuccess);
+            [_aceArgs, _maxTime] call qte_ace_medical_fnc_handleSurgicalKit;
+            [_aceArgs, _elapsedTime, _maxTime, 0] call FUNC(treatmentSuccess);
         } else  {
-            [_aceArgs] call FUNC(treatmentFailure);
+            [_aceArgs, _elapsedTime, _maxTime, 3] call FUNC(treatmentFailure);
         };
     };
 
