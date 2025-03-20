@@ -1,6 +1,6 @@
 #include "..\script_component.hpp"
 params ["_args", "_elapsedTime"];
-_args params [["_maxtime", 0], ["_tries", 0], ["_innerArgs", []], "", "", ["_progress", {true}]];
+_args params [["_maxtime", 0], ["_tries", 0], ["_innerArgs", []], "", "", ["_progress", {true}], "", ["_aceExpections", []]];
 
 private _timer = uiNamespace getVariable [QGVAR(timer), controlNull];
 if !(isNull _timer) then {
@@ -8,4 +8,8 @@ if !(isNull _timer) then {
     _timer ctrlSetStructuredText parseText format ["<t size='1' shadow='1' valign='middle'>%1</t>", _time];
 };
 
-GVAR(escPressed) || {_maxtime > 0 && _elapsedTime > _maxtime} || {_tries > 0 && GVAR(resetCount) >= _tries} || {!(_innerArgs call _progress)};
+GVAR(escPressed) ||
+{!([_innerArgs, _elapsedTime, _maxtime, -1] call _progress)} ||
+{_maxtime > 0 && _elapsedTime > _maxtime} ||
+{_tries > 0 && GVAR(resetCount) >= _tries} ||
+{!([[] call CBA_fnc_currentUnit, objNull, _aceExpections] call (missionNamespace getVariable ["ace_common_fnc_canInteractWith", {true}]))}
