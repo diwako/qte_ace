@@ -1,6 +1,6 @@
 #include "\z\ace\addons\magazinerepack\script_component.hpp"
 
-params ["_target", "_player", "_magazineClassname"];
+params ["", "_player", "_magazineClassname"];
 
 if (isNil "_magazineClassname" || {_magazineClassname == ""}) exitWith {ERROR("Bad Mag Classname");};
 private _magazineCfg = configFile >> "CfgMagazines" >> _magazineClassname;
@@ -47,7 +47,7 @@ if (GVAR(repackAnimation)) then {
 };
 
 if (qte_ace_magazinerepack_enable && !cba_quicktime_qteShorten) then {
-    private _sequence = floor (_treatmentTime * qte_ace_magazinerepack_difficulty) max 1;
+    private _sequence = floor (_totalTime * qte_ace_magazinerepack_difficulty) max 1;
     if (qte_ace_magazinerepack_qteType == 2 || {qte_ace_magazinerepack_qteType == 0 && (floor random 2) isEqualTo 0}) then {
         private _sequenceLength = _sequence;
         _sequence = selectRandom qte_ace_magazinerepack_words;
