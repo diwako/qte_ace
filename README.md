@@ -12,6 +12,7 @@ Provides QTE events for ACE interactions, mostly for actions that have a progres
 ## Supported ACE3 components
 
 - Medical
+- Magazine Repacking
 
 ## Additional
 
