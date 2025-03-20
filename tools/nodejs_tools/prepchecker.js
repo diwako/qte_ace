@@ -15,6 +15,9 @@ const ignoreFiles = [
   "addons/main/functions/fnc_fncName.sqf",
   "addons/medical/functions/fnc_treatment.sqf",
   "addons/magazinerepack/functions/fnc_startRepackingMagazine.sqf",
+  "addons/repair/functions/fnc_repair.sqf",
+  "addons/repair/functions/fnc_repair_success.sqf",
+  "addons/repair/functions/fnc_repair_failure.sqf",
 ];
 const ignoredFiles = [];
 
