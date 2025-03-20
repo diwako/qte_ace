@@ -1,3 +1,4 @@
+#include "..\script_component.hpp"
 params ["_args", "_maxtime"];
 _args params ["", "", "", "_classname"];
 
