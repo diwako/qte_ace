@@ -46,8 +46,8 @@ if (GVAR(repackAnimation)) then {
     [_player, "Gear"] call EFUNC(common,doGesture);
 };
 
-if (qte_ace_magazinerepack_enable && !cba_quicktime_qteShorten) then {
-    private _sequence = floor (_totalTime * qte_ace_magazinerepack_difficulty) max 1;
+private _sequence = floor (_totalTime * qte_ace_magazinerepack_difficulty) max 1;
+if (qte_ace_magazinerepack_enable && {!cba_quicktime_qteShorten} && {_sequence <= 500}) then {
     if (qte_ace_magazinerepack_qteType == 2 || {qte_ace_magazinerepack_qteType == 0 && (floor random 2) isEqualTo 0}) then {
         private _sequenceLength = _sequence;
         _sequence = selectRandom qte_ace_magazinerepack_words;
