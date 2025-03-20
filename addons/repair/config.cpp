@@ -5,7 +5,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"qte_ace_main", "ace_magazinerepack"};
+        requiredAddons[] = {"qte_ace_main", "ace_repair"};
         author = "diwako";
         url = "https://github.com/diwako/qte_ace";
         authorUrl = "https://github.com/diwako/qte_ace";
