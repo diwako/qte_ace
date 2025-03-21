@@ -56,16 +56,16 @@ if (ACE_player != _unit) then {
 
             private _newSuccess = {
                 params ["_args"];
-                _args params [["_maxTime", 0], "", "_aceArgs", "", "", ""];
+                _args params ["", "", "_aceArgs", "", "", ""];
                 _aceArgs call FUNC(defuseExplosive)
             };
 
             private _newFailure = {
-                params ["_args", "_elapsedTime"];
+                params ["_args"];
                 if (_args isEqualTo false) exitWith {};
                 // nothing happens in ace usually, but...
                 if (!qte_ace_main_escPressed && qte_ace_explosives_explodeOnFail) then {
-                    _args params ["_maxTime", "", "_aceArgs", "", "", ""];
+                    _args params ["", "", "_aceArgs", "", "", ""];
                     _aceArgs params ["_unit", "_explosive"];
                     // Kaboom :D
                     [_unit, -1, [_explosive, 1], "#ExplodeOnDefuse"] call FUNC(detonateExplosive);
