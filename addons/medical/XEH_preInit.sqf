@@ -4,7 +4,11 @@ ADDON = false;
 
 #include "initSettings.inc.sqf"
 
-GVAR(words) = call compile preprocessFileLineNumbers "\z\qte_ace\addons\main\words.inc.sqf";
+private _moduleWords = call compileScript [QPATHTOF(words.inc.sqf)];
+_moduleWords append _moduleWords;
+_moduleWords append _moduleWords;
+_moduleWords append _moduleWords;
+GVAR(words) = (+EGVAR(main,words)) + _moduleWords;
 GVAR(surgicalKits) = ["SurgicalKit"];
 
 ADDON = true;
