@@ -12,6 +12,7 @@ This means if you ignore the QTEs or disable it, you wait the same amount as you
 
 ## Supported ACE3 components
 
+- Explosives
 - Magazine Repacking
 - Medical
 - Repair

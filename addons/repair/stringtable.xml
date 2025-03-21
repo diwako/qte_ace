@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="qte_ace">
-    <Package name="medical">
+    <Package name="repair">
         <Key ID="STR_QTE_ACE_Repair_Category">
             <English>QTE ACE - Repair</English>
         </Key>
