@@ -227,7 +227,7 @@ TRACE_4("display",_hitPoint,_hitPointClassname,_processText,_text);
 
 // Start repair
 private _sequence = floor (_repairTime * qte_ace_repair_difficulty) max 1;
-if (qte_ace_repair_enable && {!cba_quicktime_qteShorten} && {_sequence <= 500}) then {
+if (qte_ace_repair_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace_main_maxLengthRounded}) then {
     if (qte_ace_repair_qteType == 2 || {qte_ace_repair_qteType == 0 && (floor random 2) isEqualTo 0}) then {
         private _sequenceLength = _sequence;
         _sequence = selectRandom qte_ace_repair_words;
