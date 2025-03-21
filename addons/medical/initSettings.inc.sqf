@@ -13,7 +13,7 @@
     [ELSTRING(main,difficulty), ELSTRING(main,difficulty_desc)],
     LSTRING(Category),
     [0, 10, 2.5, 1],
-    false
+    true
 ] call CBA_fnc_addSetting;
 
 [
@@ -31,7 +31,7 @@
     [ELSTRING(main,resetUponIncorrectInput), ELSTRING(main,resetUponIncorrectInput_desc)],
     LSTRING(Category),
     false,
-    false
+    true
 ] call CBA_fnc_addSetting;
 
 [
@@ -40,5 +40,5 @@
     [ELSTRING(main,tries), ELSTRING(main,tries_desc)],
     LSTRING(Category),
     [0, 100, 3, 0],
-    false
+    true
 ] call CBA_fnc_addSetting;
