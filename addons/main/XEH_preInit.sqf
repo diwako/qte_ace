@@ -14,4 +14,6 @@ GVAR(availableSounds) = [LSTRING(no_sound)] + _soundsConfig;
 
 #include "initSettings.inc.sqf"
 
+GVAR(words) = call compileScript [QPATHTOF(words.inc.sqf)];
+
 ADDON = true;
