@@ -3,6 +3,7 @@
     <Package name="magazinerepack">
         <Key ID="STR_QTE_ACE_Magazinerepack_Category">
             <English>QTE ACE - Magazine Repack</English>
+            <French>QTE ACE - Remplissage des chargeurs</French>
         </Key>
     </Package>
 </Project>

@@ -3,6 +3,7 @@
     <Package name="main">
         <Key ID="STR_QTE_ACE_main_Category">
             <English>QTE ACE - Main</English>
+            <French>QTE ACE - Principal</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_enable">
             <English>Enable QTE</English>
@@ -58,36 +59,47 @@
         </Key>
         <Key ID="STR_QTE_ACE_main_no_sound">
             <English>No sound</English>
+            <French>Pas de son</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_correct">
             <English>Sound: Correct</English>
+            <French>Son : Correct</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_correct_desc">
             <English>Sound upon correct button input inside the QTE</English>
+            <French>Son en cas de saisie correcte d'un bouton dans le QTE</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_wrong">
             <English>Sound: Wrong</English>
+            <French>Son : Incorrect</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_wrong_desc">
             <English>Sound upon wrong button input inside the QTE</English>
+            <French>Son lors de la saisie d'un mauvais bouton dans le QTE</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_win">
             <English>Sound: Win</English>
+            <French>Son : Victoire</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_win_desc">
             <English>Sound upon successfully clearing the QTE</English>
+            <French>Son après avoir réussi le QTE</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_lose">
             <English>Sound: Lose</English>
+            <French>Son : Perdu</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_lose_desc">
             <English>Sound upon losing the QTE</English>
+            <French>Son lors de I'échec du QTE</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_last_try">
             <English>Sound: Last try</English>
+            <French>Son : Dernier essai</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_last_try_desc">
             <English>Sound when you only have one try left</English>
+            <French>Son quand il ne reste plus qu'un essai</French>
         </Key>
     </Package>
 </Project>
