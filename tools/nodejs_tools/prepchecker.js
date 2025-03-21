@@ -18,6 +18,7 @@ const ignoreFiles = [
   "addons/repair/functions/fnc_repair.sqf",
   "addons/repair/functions/fnc_repair_success.sqf",
   "addons/repair/functions/fnc_repair_failure.sqf",
+  "addons/explosives/functions/fnc_startDefuse.sqf",
 ];
 const ignoredFiles = [];
 

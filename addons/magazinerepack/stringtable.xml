@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="qte_ace">
-    <Package name="medical">
+    <Package name="magazinerepack">
         <Key ID="STR_QTE_ACE_Magazinerepack_Category">
             <English>QTE ACE - Magazine Repack</English>
         </Key>

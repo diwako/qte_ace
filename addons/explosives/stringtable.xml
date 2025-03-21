@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="qte_ace">
+    <Package name="explosives">
+        <Key ID="STR_QTE_ACE_Explosives_Category">
+            <English>QTE ACE - Explosives</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_Explosives_explodeOnFail">
+            <English>Explode on failure</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_Explosives_explodeOnFail_desc">
+            <English>If the QTE fails, the explosive will go kaboom</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_Explosives_noTimer">
+            <English>No timer</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_Explosives_noTimer_desc">
+            <English>When enabled QTE is not timed</English>
+        </Key>
+    </Package>
+</Project>
