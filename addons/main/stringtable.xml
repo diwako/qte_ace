@@ -103,9 +103,11 @@
         </Key>
         <Key ID="STR_QTE_ACE_main_maxLength">
             <English>Max length</English>
+            <French>Longueur maximale</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_maxLength_desc">
             <English>Maximum length of a QTE sequence before it just reverts to the normal ACE progress bar</English>
+            <French>Durée maximale d'une séquence QTE avant de revenir à la barre de progression normale de ACE</French>
         </Key>
     </Package>
 </Project>
