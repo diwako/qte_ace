@@ -1,9 +1,10 @@
-PREP(createDisplay);
-PREP(qteDisplay);
-PREP(hijack);
-PREP(generateArrowSequence);
-PREP(qteWin);
 PREP(closeQTE);
-PREP(qteProgress);
-PREP(runQTE);
+PREP(createDisplay);
+PREP(generateArrowSequence);
+PREP(handleCompletionReturn);
+PREP(hijack);
+PREP(qteDisplay);
 PREP(qteFail);
+PREP(qteProgress);
+PREP(qteWin);
+PREP(runQTE);

@@ -150,6 +150,7 @@ if (qte_ace_medical_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_a
         _args params [["_maxTime", 0], "", "_aceArgs"];
         [_aceArgs, _maxTime] call qte_ace_medical_fnc_handleSurgicalKit;
         [_aceArgs, _maxTime, _maxTime, 0] call FUNC(treatmentSuccess);
+        true
     };
 
     private _newFailure = {
@@ -157,12 +158,22 @@ if (qte_ace_medical_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_a
         if (_args isEqualTo false) exitWith {};
         ace_medical_gui_pendingReopen = qte_ace_medical_medicMenuWasOpen;
         _args params ["_maxTime", "", "_aceArgs"];
-        if (_elapsedTime >= _maxTime) then {
+        if (!qte_ace_medical_mustBeCompleted && {_maxTime > 0 && {_elapsedTime >= _maxTime}}) then {
             [_aceArgs, _maxTime] call qte_ace_medical_fnc_handleSurgicalKit;
             [_aceArgs, _elapsedTime, _maxTime, 0] call FUNC(treatmentSuccess);
+            true
         } else  {
             [_aceArgs, _elapsedTime, _maxTime, 3] call FUNC(treatmentFailure);
+            false
         };
+    };
+
+    qte_ace_medical_progressFncCache getOrDefault [_className, _callbackProgress, true];
+    private _newProgress = {
+        params ["_args"];
+        _args params ["", "", "", "_classname"];
+        if (qte_ace_medical_mustBeCompleted && _className in qte_ace_medical_surgicalKits) exitWith {true};
+        _this call (qte_ace_medical_progressFncCache get _className)
     };
 
     if (qte_ace_medical_qteType == 2 || {qte_ace_medical_qteType == 0 && (floor random 2) isEqualTo 0}) then {
@@ -181,7 +192,7 @@ if (qte_ace_medical_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_a
         _sequence,
         _newSuccess,
         _newFailure,
-        _callbackProgress,
+        _newProgress,
         _treatmentTime,
         floor qte_ace_medical_tries,
         [_medic, _patient, _bodyPart, _classname, _itemUser, _usedItem, _createLitter],
