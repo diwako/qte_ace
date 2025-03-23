@@ -1,5 +1,8 @@
+// copy from ACE medical, modified for QTE ACE and KAT support.
+// _extraArgs is only present with KAT medcial!
+
 #include "\z\ace\addons\medical_treatment\script_component.hpp"
-params ["_medic", "_patient", "_bodyPart", "_classname"];
+params ["_medic", "_patient", "_bodyPart", "_classname", "_extraArgs"];
 
 // Delay by a frame if cursor menu is open to prevent progress bar failing
 if (uiNamespace getVariable [QEGVAR(interact_menu,cursorMenuOpened), false]) exitWith {
@@ -13,6 +16,9 @@ private _config = configFile >> QGVAR(actions) >> _classname;
 // Get treatment time from config, exit if treatment time is zero
 private _medicRequiredLevel = GET_NUMBER_ENTRY(_config >> "medicRequired");
 private _treatmentTimeConfig = ["treatmentTime", "treatmentTimeTrained"] select (([_medic, (_medicRequiredLevel + 1)] call FUNC(isMedic)) && {!isNull (_config >> "treatmentTimeTrained")});
+if !(isNil "_extraArgs") then {
+    _treatmentTimeConfig = "treatmentTime";
+};
 private _treatmentTime = if (isText (_config >> _treatmentTimeConfig)) then {
     GET_FUNCTION(_treatmentTime,_config >> _treatmentTimeConfig);
 
@@ -34,6 +40,26 @@ private _userAndItem = if (GET_NUMBER_ENTRY(_config >> "consumeItem") == 1) then
 } else {
     [objNull, "", false]; // Treatment does not require items to be consumed
 };
+
+// Patient Animation Added from Old Ace
+// if (!isNil "_extraArgs" && alive _patient) then {
+if (alive _patient) then {
+    private _patientAnim = getText (_config >> "animationPatient");
+    if (_patient getVariable ["ACE_isUnconscious", false]) then {
+        if !(animationState _patient in (getArray (_config >> "animationPatientUnconsciousExcludeOn"))) then {
+            _patientAnim = getText (_config >> "animationPatientUnconscious");
+        };
+    };
+
+    if (_medic != _patient && {isNull objectParent _patient} && {_patientAnim != ""}) then {
+        if (_patient getVariable ["ACE_isUnconscious", false]) then {
+            [_patient, _patientAnim, 2] call EFUNC(common,doAnimation);
+        } else {
+            [_patient, _patientAnim, 1] call EFUNC(common,doAnimation);
+        };
+    };
+};
+//Old Ace Ending here
 
 _userAndItem params ["_itemUser", "_usedItem", "_createLitter"];
 
@@ -121,9 +147,19 @@ if (_medic isNotEqualTo player || {!_isInZeus}) then {
     // Play a random treatment sound globally if defined
     private _soundsConfig = _config >> "sounds";
 
-    if (isArray _soundsConfig) then {
+    if (isArray (_soundsConfig) && count getArray (_soundsConfig) != 0) then {
         (selectRandom (getArray _soundsConfig)) params ["_file", ["_volume", 1], ["_pitch", 1], ["_distance", 10]];
-        playSound3D [_file, objNull, false, getPosASL _medic, _volume, _pitch, _distance];
+        GVAR(TreatmentSound) = playSound3D [_file, objNull, false, getPosASL _medic, _volume, _pitch, _distance];
+
+        if !(isNil "_extraArgs") then {
+            [{
+                !dialog;
+            }, {
+                stopSound GVAR(TreatmentSound);
+            }, [], _treatmentTime, {
+                GVAR(TreatmentSound) = nil;
+            }] call CBA_fnc_waitUntilAndExecute;
+        };
     };
 };
 
@@ -138,9 +174,9 @@ if (_callbackProgress isEqualTo {}) then {
     _callbackProgress = {true};
 };
 
-[_medic, _patient, _bodyPart, _classname, _itemUser, _usedItem, _createLitter] call _callbackStart;
+[_medic, _patient, _bodyPart, _classname, _itemUser, _usedItem, _createLitter, _extraArgs] call _callbackStart;
 
-["ace_treatmentStarted", [_medic, _patient, _bodyPart, _classname, _itemUser, _usedItem, _createLitter]] call CBA_fnc_localEvent;
+["ace_treatmentStarted", [_medic, _patient, _bodyPart, _classname, _itemUser, _usedItem, _createLitter, _extraArgs]] call CBA_fnc_localEvent;
 
 private _sequence = floor (_treatmentTime * qte_ace_medical_difficulty) max 1;
 if (qte_ace_medical_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace_main_maxLengthRounded}) then {
@@ -195,7 +231,7 @@ if (qte_ace_medical_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_a
         _newProgress,
         _treatmentTime,
         floor qte_ace_medical_tries,
-        [_medic, _patient, _bodyPart, _classname, _itemUser, _usedItem, _createLitter],
+        [_medic, _patient, _bodyPart, _classname, _itemUser, _usedItem, _createLitter, _extraArgs],
         getText (_config >> "displayNameProgress"),
         qte_ace_medical_resetUponIncorrectInput,
         ["isNotInside", "isNotSwimming", "isNotInZeus"]
@@ -203,7 +239,7 @@ if (qte_ace_medical_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_a
 } else {
     [
         _treatmentTime,
-        [_medic, _patient, _bodyPart, _classname, _itemUser, _usedItem, _createLitter],
+        [_medic, _patient, _bodyPart, _classname, _itemUser, _usedItem, _createLitter, _extraArgs],
         FUNC(treatmentSuccess),
         FUNC(treatmentFailure),
         getText (_config >> "displayNameProgress"),
