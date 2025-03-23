@@ -158,7 +158,7 @@ if (qte_ace_medical_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_a
         if (_args isEqualTo false) exitWith {};
         ace_medical_gui_pendingReopen = qte_ace_medical_medicMenuWasOpen;
         _args params ["_maxTime", "", "_aceArgs"];
-        if (!qte_ace_medical_mustBeCompleted && _elapsedTime >= _maxTime) then {
+        if (!qte_ace_medical_mustBeCompleted && {_maxTime > 0 && {_elapsedTime >= _maxTime}}) then {
             [_aceArgs, _maxTime] call qte_ace_medical_fnc_handleSurgicalKit;
             [_aceArgs, _elapsedTime, _maxTime, 0] call FUNC(treatmentSuccess);
             true

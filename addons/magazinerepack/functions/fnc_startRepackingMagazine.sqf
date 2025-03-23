@@ -79,7 +79,7 @@ if (qte_ace_magazinerepack_enable && {!cba_quicktime_qteShorten} && {_sequence <
         params ["_args", "_elapsedTime"];
         if (_args isEqualTo false) exitWith {};
         _args params ["_maxTime", "", "_aceArgs"];
-        if (!qte_ace_magazinerepack_mustBeCompleted && _elapsedTime >= _maxTime) then {
+        if (!qte_ace_magazinerepack_mustBeCompleted && {_maxTime > 0 && {_elapsedTime >= _maxTime}}) then {
             while {[_aceArgs, _elapsedTime, _maxTime] call FUNC(magazineRepackProgress)} do {
                 // :)
             };

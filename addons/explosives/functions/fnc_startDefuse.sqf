@@ -65,7 +65,7 @@ if (ACE_player != _unit) then {
                 params ["_args", "_elapsedTime"];
                 if (_args isEqualTo false) exitWith {};
                 _args params ["_maxTime", "", "_aceArgs", "", "", ""];
-                if (!qte_ace_explosives_mustBeCompleted && _elapsedTime >= _maxTime) then {
+                if (!qte_ace_explosives_mustBeCompleted && {_maxTime > 0 && {_elapsedTime >= _maxTime}}) then {
                     _aceArgs call FUNC(defuseExplosive);
                     true
                 } else {
