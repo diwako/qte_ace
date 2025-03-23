@@ -95,5 +95,11 @@
         <Key ID="STR_QTE_ACE_main_maxLength_desc">
             <English>Maximum length of a QTE sequence before it just reverts to the normal ACE progress bar</English>
         </Key>
+        <Key ID="STR_QTE_ACE_main_qte_must_be_completed">
+            <English>QTE must be completed</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_qte_must_be_completed_desc">
+            <English>When enabled, the QTE must be successfully completed, else it counts as a failure</English>
+        </Key>
     </Package>
 </Project>

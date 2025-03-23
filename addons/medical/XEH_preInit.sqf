@@ -10,5 +10,6 @@ _moduleWords append _moduleWords;
 _moduleWords append _moduleWords;
 GVAR(words) = (+EGVAR(main,words)) + _moduleWords;
 GVAR(surgicalKits) = ["SurgicalKit"];
+GVAR(progressFncCache) = createHashMap;
 
 ADDON = true;

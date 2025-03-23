@@ -72,27 +72,35 @@ if (qte_ace_magazinerepack_enable && {!cba_quicktime_qteShorten} && {_sequence <
             // :)
         };
         [_aceArgs, _maxTime, _maxTime, 0] call FUNC(magazineRepackFinish);
+        true
     };
 
     private _newFailure = {
         params ["_args", "_elapsedTime"];
         if (_args isEqualTo false) exitWith {};
         _args params ["_maxTime", "", "_aceArgs"];
-        if (_elapsedTime >= _maxTime) then {
+        if (!qte_ace_magazinerepack_mustBeCompleted && _elapsedTime >= _maxTime) then {
             while {[_aceArgs, _elapsedTime, _maxTime] call FUNC(magazineRepackProgress)} do {
                 // :)
             };
             [_aceArgs, _elapsedTime, _maxTime, 0] call FUNC(magazineRepackFinish);
+            true
         } else  {
             [_aceArgs, _elapsedTime, _maxTime, 3] call FUNC(magazineRepackFinish);
+            false
         };
+    };
+
+    private _newProgress = {
+        if (qte_ace_magazinerepack_mustBeCompleted) exitWith {true};
+        _this call FUNC(magazineRepackProgress)
     };
 
     [
         _sequence,
         _newSuccess,
         _newFailure,
-        {call FUNC(magazineRepackProgress)},
+        _newProgress,
         _totalTime,
         floor qte_ace_magazinerepack_tries,
         [_magazineClassname, _startingAmmoCounts, _simEvents],

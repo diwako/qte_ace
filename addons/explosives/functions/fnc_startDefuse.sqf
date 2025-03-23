@@ -57,19 +57,26 @@ if (ACE_player != _unit) then {
             private _newSuccess = {
                 params ["_args"];
                 _args params ["", "", "_aceArgs", "", "", ""];
-                _aceArgs call FUNC(defuseExplosive)
+                _aceArgs call FUNC(defuseExplosive);
+                true
             };
 
             private _newFailure = {
-                params ["_args"];
+                params ["_args", "_elapsedTime"];
                 if (_args isEqualTo false) exitWith {};
-                // nothing happens in ace usually, but...
-                if (!qte_ace_main_escPressed && qte_ace_explosives_explodeOnFail) then {
-                    _args params ["", "", "_aceArgs", "", "", ""];
-                    _aceArgs params ["_unit", "_explosive"];
-                    // Kaboom :D
-                    [_unit, -1, [_explosive, 1], "#ExplodeOnDefuse"] call FUNC(detonateExplosive);
-                    [QGVAR(explodeOnDefuse), [_explosive, _unit]] call CBA_fnc_globalEvent;
+                _args params ["_maxTime", "", "_aceArgs", "", "", ""];
+                if (!qte_ace_explosives_mustBeCompleted && _elapsedTime >= _maxTime) then {
+                    _aceArgs call FUNC(defuseExplosive);
+                    true
+                } else {
+                    // nothing happens in ace usually, but...
+                    if (!qte_ace_main_escPressed && qte_ace_explosives_explodeOnFail) then {
+                        _aceArgs params ["_unit", "_explosive"];
+                        // Kaboom :D
+                        [_unit, -1, [_explosive, 1], "#ExplodeOnDefuse"] call FUNC(detonateExplosive);
+                        [QGVAR(explodeOnDefuse), [_explosive, _unit]] call CBA_fnc_globalEvent;
+                    };
+                    false
                 };
             };
 
