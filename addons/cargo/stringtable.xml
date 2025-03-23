@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="qte_ace">
+    <Package name="cargo">
+        <Key ID="STR_QTE_ACE_Cargo_Category">
+            <English>QTE ACE - Cargo</English>
+        </Key>
+    </Package>
+</Project>

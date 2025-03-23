@@ -8,3 +8,4 @@ PREP(qteFail);
 PREP(qteProgress);
 PREP(qteWin);
 PREP(runQTE);
+PREP(generateWordsQTE);
