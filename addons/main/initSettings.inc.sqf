@@ -55,3 +55,12 @@
         GVAR(maxLengthRounded) = round _value;
     }
 ] call CBA_fnc_addSetting;
+
+[
+    QGVAR(qtePosition),
+    "LIST",
+    [LSTRING(qte_position), LSTRING(qte_position_desc)],
+    LSTRING(Category),
+    [[0, 1, 2], [localize "str_a3_cfguigrids_gui_variables_grid_center_0", LSTRING(qte_position_bottom), LSTRING(qte_position_top)], 0],
+    false
+] call CBA_fnc_addSetting;

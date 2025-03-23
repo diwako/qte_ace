@@ -5,7 +5,7 @@ private _display = uiNamespace getVariable [QGVAR(qteDisplay), displayNull];
 private _box = _display getVariable QGVAR(ctrlGrp);
 private _boxPos = ctrlPosition _box;
 _box ctrlSetFade 1;
-_boxPos set [1, 0.5];
+_boxPos set [1, _display getVariable QGVAR(startingBoxPosY)];
 _boxPos set [3, 0];
 _box ctrlSetPosition _boxPos;
 _box ctrlCommit 0.25;
