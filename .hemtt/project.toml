@@ -22,6 +22,7 @@ workshop = [
     "450814997", # CBA_A3's Workshop ID
     "463939057", # ACE3
     "2369477168", # Advanced developer tools
+    # "2020940806", # KAT medical
 ]
 parameters = ["-world=empty"]
 
