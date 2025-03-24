@@ -48,13 +48,8 @@ if (GVAR(repackAnimation)) then {
 
 private _sequence = floor (_totalTime * qte_ace_magazinerepack_difficulty) max 1;
 if (qte_ace_magazinerepack_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace_main_maxLengthRounded}) then {
-    if (qte_ace_magazinerepack_qteType == 2 || {qte_ace_magazinerepack_qteType == 0 && (floor random 2) isEqualTo 0}) then {
-        private _sequenceLength = _sequence;
-        _sequence = selectRandom qte_ace_magazinerepack_words;
-        while {(count _sequence + 1) < _sequenceLength} do {
-            _sequence = format ["%1 %2", _sequence, selectRandom qte_ace_magazinerepack_words];
-        };
-    } else {
+    _sequence = [_sequence, "magazinerepack"] call qte_ace_main_fnc_generateWordsQTE;
+    if !(qte_ace_magazinerepack_qteType == 2 || {qte_ace_magazinerepack_qteType == 0 && (floor random 2) isEqualTo 0}) then {
         // comedy option
         if (random 10 < 0.5) then {
             private _sequenceLength = _sequence;
