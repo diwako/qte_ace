@@ -41,6 +41,10 @@ if (!isNull GVAR(itemPreviewObject) && {[GVAR(selectedItem), GVAR(interactionVeh
             };
         };
 
+        if (qte_ace_cargo_noTimer) then {
+            _duration = 0;
+        };
+
         [
             _sequence,
             _newSuccess,

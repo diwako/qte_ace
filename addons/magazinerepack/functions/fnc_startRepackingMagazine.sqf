@@ -61,8 +61,11 @@ if (qte_ace_magazinerepack_enable && {!cba_quicktime_qteShorten} && {_sequence <
     };
 
     private _newSuccess = {
-        params ["_args", "_elapsedTime"];
+        params ["_args"];
         _args params [["_maxTime", 0], "", "_aceArgs"];
+        if (qte_ace_magazinerepack_noTimer) then {
+            _maxTime = 10e10;
+        };
         while {[_aceArgs, _maxTime, _maxTime] call FUNC(magazineRepackProgress)} do {
             // :)
         };
@@ -87,8 +90,12 @@ if (qte_ace_magazinerepack_enable && {!cba_quicktime_qteShorten} && {_sequence <
     };
 
     private _newProgress = {
-        if (qte_ace_magazinerepack_mustBeCompleted) exitWith {true};
+        if (qte_ace_magazinerepack_mustBeCompleted || qte_ace_magazinerepack_noTimer) exitWith {true};
         _this call FUNC(magazineRepackProgress)
+    };
+
+    if (qte_ace_magazinerepack_noTimer) then {
+        _totalTime = 0;
     };
 
     [

@@ -44,6 +44,10 @@ if (GVAR(interactionParadrop)) exitWith {
             };
         };
 
+        if (qte_ace_cargo_noTimer) then {
+            _duration = 0;
+        };
+
         [qte_ace_main_fnc_runQTE, [
             _sequence,
             _newSuccess,
@@ -144,6 +148,10 @@ if ([_item, GVAR(interactionVehicle), _unit] call FUNC(canUnloadItem)) then {
                 // ace cargo does nothing on fail
                 false
             };
+        };
+
+        if (qte_ace_cargo_noTimer) then {
+            _duration = 0;
         };
 
         [

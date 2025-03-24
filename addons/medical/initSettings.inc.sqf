@@ -44,6 +44,15 @@
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(noTimer),
+    "CHECKBOX",
+    [ELSTRING(main,noTimer), ELSTRING(main,noTimer_desc)],
+    LSTRING(Category),
+    false,
+    true
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(mustBeCompleted),
     "CHECKBOX",
     [ELSTRING(main,qte_must_be_completed), ELSTRING(main,qte_must_be_completed_desc)],

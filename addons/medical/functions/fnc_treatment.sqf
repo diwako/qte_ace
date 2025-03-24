@@ -208,7 +208,7 @@ if (qte_ace_medical_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_a
     private _newProgress = {
         params ["_args"];
         _args params ["", "", "", "_classname"];
-        if (qte_ace_medical_mustBeCompleted && _className in qte_ace_medical_surgicalKits) exitWith {true};
+        if (_className in qte_ace_medical_surgicalKits && {qte_ace_medical_noTimer || qte_ace_medical_mustBeCompleted}) exitWith {true};
         _this call (qte_ace_medical_progressFncCache get _className)
     };
 
@@ -217,6 +217,9 @@ if (qte_ace_medical_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_a
     qte_ace_medical_medicMenuWasOpen = [_medic, _patient] call EFUNC(medical_gui,canOpenMenu) && {!isNull (uiNamespace getVariable [QEGVAR(medical_gui,menuDisplay), displayNull])};
     if (qte_ace_medical_medicMenuWasOpen) then {
         closeDialog 0;
+    };
+    if (qte_ace_medical_noTimer) then {
+        _treatmentTime = 0;
     };
     [
         _sequence,

@@ -157,5 +157,13 @@
             <Chinesesimp>上</Chinesesimp>
             <Turkish>Üst</Turkish>
         </Key>
+        <Key ID="STR_QTE_ACE_main_noTimer">
+            <English>No timer</English>
+            <French>Pas de minuterie</French>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_noTimer_desc">
+            <English>When enabled QTE is not timed</English>
+            <French>Lorsque la fonction QTE est activée, elle n'est pas chronométrée.</French>
+        </Key>
     </Package>
 </Project>
