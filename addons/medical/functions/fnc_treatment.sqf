@@ -212,13 +212,7 @@ if (qte_ace_medical_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_a
         _this call (qte_ace_medical_progressFncCache get _className)
     };
 
-    if (qte_ace_medical_qteType == 2 || {qte_ace_medical_qteType == 0 && (floor random 2) isEqualTo 0}) then {
-        private _sequenceLength = _sequence;
-        _sequence = selectRandom qte_ace_medical_words;
-        while {(count _sequence + 1) < _sequenceLength} do {
-            _sequence = format ["%1 %2", _sequence, selectRandom qte_ace_medical_words];
-        };
-    };
+    _sequence = [_sequence, "medical"] call qte_ace_main_fnc_generateWordsQTE;
 
     qte_ace_medical_medicMenuWasOpen = [_medic, _patient] call EFUNC(medical_gui,canOpenMenu) && {!isNull (uiNamespace getVariable [QEGVAR(medical_gui,menuDisplay), displayNull])};
     if (qte_ace_medical_medicMenuWasOpen) then {
