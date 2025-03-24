@@ -3,6 +3,7 @@
     <Package name="cargo">
         <Key ID="STR_QTE_ACE_Cargo_Category">
             <English>QTE ACE - Cargo</English>
+            <French>QTE ACE - Cargo</French>
         </Key>
     </Package>
 </Project>

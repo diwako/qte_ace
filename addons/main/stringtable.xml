@@ -3,6 +3,7 @@
     <Package name="main">
         <Key ID="STR_QTE_ACE_main_Category">
             <English>QTE ACE - Main</English>
+            <French>QTE ACE - Principal</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_enable">
             <English>Enable QTE</English>
@@ -58,54 +59,71 @@
         </Key>
         <Key ID="STR_QTE_ACE_main_no_sound">
             <English>No sound</English>
+            <French>Pas de son</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_correct">
             <English>Sound: Correct</English>
+            <French>Son : Correct</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_correct_desc">
             <English>Sound upon correct button input inside the QTE</English>
+            <French>Son en cas de saisie correcte d'un bouton dans le QTE</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_wrong">
             <English>Sound: Wrong</English>
+            <French>Son : Incorrect</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_wrong_desc">
             <English>Sound upon wrong button input inside the QTE</English>
+            <French>Son lors de la saisie d'un mauvais bouton dans le QTE</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_win">
             <English>Sound: Win</English>
+            <French>Son : Victoire</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_win_desc">
             <English>Sound upon successfully clearing the QTE</English>
+            <French>Son après avoir réussi le QTE</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_lose">
             <English>Sound: Lose</English>
+            <French>Son : Perdu</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_lose_desc">
             <English>Sound upon losing the QTE</English>
+            <French>Son lors de I'échec du QTE</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_last_try">
             <English>Sound: Last try</English>
+            <French>Son : Dernier essai</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_last_try_desc">
             <English>Sound when you only have one try left</English>
+            <French>Son quand il ne reste plus qu'un essai</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_maxLength">
             <English>Max length</English>
+            <French>Longueur maximale</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_maxLength_desc">
             <English>Maximum length of a QTE sequence before it just reverts to the normal ACE progress bar</English>
+            <French>Durée maximale d'une séquence QTE avant de revenir à la barre de progression normale de ACE</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_qte_must_be_completed">
             <English>QTE must be completed</English>
+            <French>Le QTE doit être complété</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_qte_must_be_completed_desc">
             <English>When enabled, the QTE must be successfully completed, else it counts as a failure</English>
+            <French>Lorsqu'elle est activée, la QTE doit être achevée avec succès, sinon elle est considérée comme un échec.</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_qte_position">
             <English>QTE position</English>
+            <French>Position QTE</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_qte_position_desc">
             <English>Where should the QTE position be displayed?</English>
+            <French>Où la position QTE doit-elle être affichée ?</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_qte_position_bottom">
             <English>Bottom</English>
