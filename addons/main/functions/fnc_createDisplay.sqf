@@ -22,12 +22,26 @@ if (_rows > 1) then {
     _boxWidth = _maxArrowsPerRow * _arrowWidth + 2 * _arrowWidth;
     _boxHeight = _boxHeight * _rows;
 };
+private _startingBoxPosY = 0.5;
+private _endingBoxPosY = 0.5 - _boxHeight / 2;
+switch (GVAR(qtePosition)) do {
+    case 1: {
+        _startingBoxPosY = safeZoneH + safeZoneY - _gridHeight * 8;
+        _endingBoxPosY = safeZoneH + safeZoneY - (_gridHeight * 8 + _boxHeight / 2);
+    };
+    case 2: {
+        _startingBoxPosY = safeZoneY + _gridHeight * 5 + _boxHeight / 2;
+        _endingBoxPosY = safeZoneY + _gridHeight * 5;
+    };
+    default { };
+};
+_display setVariable [QGVAR(startingBoxPosY), _startingBoxPosY];
 
 private _ctrlGrp = _display ctrlCreate ["RscControlsGroupNoScrollbars", -1];
 _display setVariable [QGVAR(ctrlGrp), _ctrlGrp];
-_ctrlGrp ctrlSetPosition [0.5 - (_boxWidth / 2), 0.5, _boxWidth, 0];
+_ctrlGrp ctrlSetPosition [0.5 - (_boxWidth / 2), _startingBoxPosY, _boxWidth, 0];
 _ctrlGrp ctrlCommit 0;
-_ctrlGrp ctrlSetPosition [0.5 - (_boxWidth / 2), 0.5 - _boxHeight / 2, _boxWidth, _boxHeight + _arrowHeight];
+_ctrlGrp ctrlSetPosition [0.5 - (_boxWidth / 2), _endingBoxPosY, _boxWidth, _boxHeight + _arrowHeight];
 _ctrlGrp ctrlCommit 0.25;
 
 private _ctrlBox = _display ctrlCreate ["RscBackground", -1, _ctrlGrp];
@@ -57,7 +71,7 @@ if (_text isNotEqualTo "") then {
     private _ctrl = _display ctrlCreate ["RscStructuredText", -1];
     _display setVariable [QGVAR(ctrlText), _ctrl];
     _ctrl ctrlSetStructuredText parseText format ["<t size='1' shadow='1' valign='middle'>%1</t>", _text];
-    _ctrl ctrlSetPosition [0.5 - (_boxWidth / 2), 0.5 - _boxHeight / 2 - _gridHeight * 3, _boxWidth, _gridHeight * 3];
+    _ctrl ctrlSetPosition [0.5 - (_boxWidth / 2), _endingBoxPosY - _gridHeight * 3, _boxWidth, _gridHeight * 3];
     _ctrl ctrlSetBackgroundColor [
         profileNamespace getVariable ['GUI_BCG_RGB_R', 0],
         profileNamespace getVariable ['GUI_BCG_RGB_G', 0],
@@ -75,7 +89,7 @@ if (_tries > 0) then {
     private _ctrl = _display ctrlCreate ["RscStructuredText", -1];
     _display setVariable [QGVAR(ctrlTries), _ctrl];
     _ctrl ctrlSetStructuredText parseText format ["<t size='1' shadow='1' valign='middle' align='right'>%1/%1</t>", _tries];
-    _ctrl ctrlSetPosition [0.5 - (_boxWidth / 2), 0.5 - _boxHeight / 2 - _gridHeight * 3, _boxWidth, _gridHeight * 3];
+    _ctrl ctrlSetPosition [0.5 - (_boxWidth / 2), _endingBoxPosY - _gridHeight * 3, _boxWidth, _gridHeight * 3];
     _ctrl ctrlSetTextColor [1, 1, 1, 1];
     _ctrl ctrlSetFade 1;
     _ctrl ctrlCommit 0;

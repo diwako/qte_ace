@@ -109,5 +109,49 @@
             <English>Maximum length of a QTE sequence before it just reverts to the normal ACE progress bar</English>
             <French>Durée maximale d'une séquence QTE avant de revenir à la barre de progression normale de ACE</French>
         </Key>
+        <Key ID="STR_QTE_ACE_main_qte_must_be_completed">
+            <English>QTE must be completed</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_qte_must_be_completed_desc">
+            <English>When enabled, the QTE must be successfully completed, else it counts as a failure</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_qte_position">
+            <English>QTE position</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_qte_position_desc">
+            <English>Where should the QTE position be displayed?</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_qte_position_bottom">
+            <English>Bottom</English>
+            <Czech>Zespod</Czech>
+            <French>Bas</French>
+            <Spanish>Inferior</Spanish>
+            <Italian>In basso</Italian>
+            <Polish>Dół</Polish>
+            <Portuguese>Fundo</Portuguese>
+            <Russian>Снизу</Russian>
+            <German>Unten</German>
+            <Korean>맨 밑으로</Korean>
+            <Japanese>下</Japanese>
+            <Chinese>底部</Chinese>
+            <Chinesesimp>下</Chinesesimp>
+            <Turkish>Aşaği</Turkish>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_qte_position_top">
+            <English>Top</English>
+            <Czech>Shora</Czech>
+            <French>Haut</French>
+            <Spanish>Superior</Spanish>
+            <Italian>In alto</Italian>
+            <Polish>Góra</Polish>
+            <Portuguese>Topo</Portuguese>
+            <Russian>Сверху</Russian>
+            <German>Oben</German>
+            <Korean>위</Korean>
+            <Japanese>Top</Japanese>
+            <Chinese>上方</Chinese>
+            <Chinesesimp>上</Chinesesimp>
+            <Turkish>Üst</Turkish>
+        </Key>
     </Package>
 </Project>
