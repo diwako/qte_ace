@@ -111,15 +111,19 @@
         </Key>
         <Key ID="STR_QTE_ACE_main_qte_must_be_completed">
             <English>QTE must be completed</English>
+            <French>Le QTE doit être complété</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_qte_must_be_completed_desc">
             <English>When enabled, the QTE must be successfully completed, else it counts as a failure</English>
+            <French>Lorsqu'elle est activée, la QTE doit être achevée avec succès, sinon elle est considérée comme un échec.</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_qte_position">
             <English>QTE position</English>
+            <French>Position QTE</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_qte_position_desc">
             <English>Where should the QTE position be displayed?</English>
+            <French>Où la position QTE doit-elle être affichée ?</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_qte_position_bottom">
             <English>Bottom</English>
