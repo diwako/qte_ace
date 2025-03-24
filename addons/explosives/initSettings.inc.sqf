@@ -55,7 +55,7 @@
 [
     QGVAR(noTimer),
     "CHECKBOX",
-    [LSTRING(noTimer), LSTRING(noTimer_desc)],
+    [ELSTRING(main,noTimer), ELSTRING(main,noTimer_desc)],
     LSTRING(Category),
     true,
     true

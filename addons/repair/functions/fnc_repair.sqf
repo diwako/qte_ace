@@ -250,6 +250,10 @@ if (qte_ace_repair_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ac
         };
     };
 
+    if (qte_ace_repair_noTimer) then {
+        _repairTime = 0;
+    };
+
     [
         _sequence,
         _newSuccess,

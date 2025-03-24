@@ -13,13 +13,5 @@
             <English>If the QTE fails, the explosive will go kaboom</English>
             <French>Si le QTE échoue, l'explosif explose.</French>
         </Key>
-        <Key ID="STR_QTE_ACE_Explosives_noTimer">
-            <English>No timer</English>
-            <French>Pas de minuterie</French>
-        </Key>
-        <Key ID="STR_QTE_ACE_Explosives_noTimer_desc">
-            <English>When enabled QTE is not timed</English>
-            <French>Lorsque la fonction QTE est activée, elle n'est pas chronométrée.</French>
-        </Key>
     </Package>
 </Project>
