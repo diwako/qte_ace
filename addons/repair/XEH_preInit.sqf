@@ -9,5 +9,7 @@ _moduleWords append _moduleWords;
 _moduleWords append _moduleWords;
 _moduleWords append _moduleWords;
 GVAR(words) = (+EGVAR(main,words)) + _moduleWords;
+GVAR(progressFncCache) = createHashMap;
+GVAR(actionsWithProgress) = ["PatchWheel", "FullRepair"];
 
 ADDON = true;
