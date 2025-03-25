@@ -3,6 +3,12 @@ params [["_qteSequence", []], ["_maxTime", 0], ["_tries", 0], ["_text", ""]];
 private _display = findDisplay 46 createDisplay "RscDisplayEmpty";
 uiNamespace setVariable [QGVAR(qteDisplay), _display];
 
+private _background = _display ctrlCreate ["CtrlMapEmpty", -1];
+_background ctrlSetPosition [safeZoneX, safeZoneY, safeZoneW, safeZoneH];
+_background ctrlSetFade 1;
+_background ctrlMapCursor ["", QGVAR(hidden)];
+_background ctrlCommit 0;
+
 private _length = count _qteSequence;
 private _gridHeight = pixelH * pixelGrid;
 

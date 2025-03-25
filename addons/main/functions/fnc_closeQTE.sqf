@@ -50,3 +50,7 @@ if !(isNull _tries) then {
 [{
     _this closeDisplay 0;
 }, _display, 0.26] call CBA_fnc_waitAndExecute;
+
+inGameUISetEventHandler ["PrevAction", "false"];
+inGameUISetEventHandler ["NextAction", "false"];
+inGameUISetEventHandler ["Action", "false"];

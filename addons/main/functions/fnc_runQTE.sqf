@@ -45,4 +45,8 @@ private _display = [_sequence, _maxTime, _tries, _text] call FUNC(createDisplay)
     _resetUponIncorrectInput
 ] call CBA_fnc_runQTE;
 
+inGameUISetEventHandler ["PrevAction", "true"];
+inGameUISetEventHandler ["NextAction", "true"];
+inGameUISetEventHandler ["Action", "true"];
+
 true
