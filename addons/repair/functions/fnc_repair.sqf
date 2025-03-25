@@ -233,6 +233,13 @@ if (qte_ace_repair_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ac
     private _newSuccess = {
         params ["_args"];
         _args params [["_maxTime", 0], "", "_aceArgs", "", "", ""];
+        _aceArgs params ["", "", "", "_classname"];
+        diw_debug = _classname;
+        if (_className in qte_ace_repair_actionsWithProgress) then {
+            while {[_aceArgs, _maxTime + 1, _maxTime] call (qte_ace_repair_progressFncCache get _className)} do {
+                // :)
+            };
+        };
         [_aceArgs] call DFUNC(repair_success);
         true
     };
@@ -242,12 +249,29 @@ if (qte_ace_repair_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ac
         if (_args isEqualTo false) exitWith {};
         _args params ["_maxTime", "", "_aceArgs", "", "", ""];
         if (!qte_ace_repair_mustBeCompleted && {_maxTime > 0 && {_elapsedTime >= _maxTime}}) then {
+            _args params ["", "", "", "_classname"];
+            if (_className in qte_ace_repair_actionsWithProgress) then {
+                if (qte_ace_repair_noTimer) then {
+                    _maxTime = _elapsedTime;
+                };
+                while {[_aceArgs, _elapsedTime, _maxTime] call (qte_ace_repair_progressFncCache get _className)} do {
+                    // :)
+                };
+            };
             [_aceArgs] call DFUNC(repair_success);
             true
         } else  {
             [_aceArgs] call DFUNC(repair_failure);
             false
         };
+    };
+
+    qte_ace_repair_progressFncCache getOrDefault [_className, _callbackProgress, true];
+    private _newProgress = {
+        params ["_args"];
+        _args params ["", "", "", "_classname"];
+        if (_className in qte_ace_repair_actionsWithProgress && {qte_ace_repair_noTimer || qte_ace_repair_mustBeCompleted}) exitWith {true};
+        _this call (qte_ace_repair_progressFncCache get _className)
     };
 
     if (qte_ace_repair_noTimer) then {
@@ -258,7 +282,7 @@ if (qte_ace_repair_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ac
         _sequence,
         _newSuccess,
         _newFailure,
-        _callbackProgress,
+        _newProgress,
         _repairTime,
         floor qte_ace_repair_tries,
         [_caller, _target, _hitPoint, _className, _items, _usersOfItems, _claimObjectsAvailable],
