@@ -182,7 +182,10 @@ private _sequence = floor (_treatmentTime * qte_ace_medical_difficulty) max 1;
 if (qte_ace_medical_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace_main_maxLengthRounded}) then {
     private _newSuccess = {
         params ["_args", "_elapsedTime"];
-        ace_medical_gui_pendingReopen = qte_ace_medical_medicMenuWasOpen;
+        if (qte_ace_medical_medicMenuWasOpen) then {
+            EGVAR(medical_gui,pendingReopen) = qte_ace_medical_medicMenuWasOpen;
+            EGVAR(medical_gui,target) = qte_ace_medical_target;
+        };
         _args params [["_maxTime", 0], "", "_aceArgs"];
         [_aceArgs, _maxTime] call qte_ace_medical_fnc_handleSurgicalKit;
         [_aceArgs, _maxTime, _maxTime, 0] call FUNC(treatmentSuccess);
@@ -192,7 +195,10 @@ if (qte_ace_medical_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_a
     private _newFailure = {
         params ["_args", "_elapsedTime"];
         if (_args isEqualTo false) exitWith {};
-        ace_medical_gui_pendingReopen = qte_ace_medical_medicMenuWasOpen;
+        if (qte_ace_medical_medicMenuWasOpen) then {
+            EGVAR(medical_gui,pendingReopen) = qte_ace_medical_medicMenuWasOpen;
+            EGVAR(medical_gui,target) = qte_ace_medical_target;
+        };
         _args params ["_maxTime", "", "_aceArgs"];
         if (!qte_ace_medical_mustBeCompleted && {_maxTime > 0 && {_elapsedTime >= _maxTime}}) then {
             [_aceArgs, _maxTime] call qte_ace_medical_fnc_handleSurgicalKit;
@@ -216,6 +222,7 @@ if (qte_ace_medical_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_a
 
     qte_ace_medical_medicMenuWasOpen = [_medic, _patient] call EFUNC(medical_gui,canOpenMenu) && {!isNull (uiNamespace getVariable [QEGVAR(medical_gui,menuDisplay), displayNull])};
     if (qte_ace_medical_medicMenuWasOpen) then {
+        qte_ace_medical_target = EGVAR(medical_gui,target);
         closeDialog 0;
     };
     if (qte_ace_medical_noTimer) then {
