@@ -179,7 +179,7 @@ if (_callbackProgress isEqualTo {}) then {
 ["ace_treatmentStarted", [_medic, _patient, _bodyPart, _classname, _itemUser, _usedItem, _createLitter, _extraArgs]] call CBA_fnc_localEvent;
 
 private _sequence = floor (_treatmentTime * qte_ace_medical_difficulty) max 1;
-if (qte_ace_medical_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace_main_maxLengthRounded}) then {
+if (!_isInZeus && {qte_ace_medical_enable} && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace_main_maxLengthRounded}) then {
     private _newSuccess = {
         params ["_args", "_elapsedTime"];
         if (qte_ace_medical_medicMenuWasOpen) then {
