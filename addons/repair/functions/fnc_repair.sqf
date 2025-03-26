@@ -234,7 +234,6 @@ if (qte_ace_repair_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ac
         params ["_args"];
         _args params [["_maxTime", 0], "", "_aceArgs", "", "", ""];
         _aceArgs params ["", "", "", "_classname"];
-        diw_debug = _classname;
         if (_className in qte_ace_repair_actionsWithProgress) then {
             while {[_aceArgs, _maxTime + 1, _maxTime] call (qte_ace_repair_progressFncCache get _className)} do {
                 // :)
