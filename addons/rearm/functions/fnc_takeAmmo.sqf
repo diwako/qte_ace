@@ -4,7 +4,7 @@ params ["_truck", "_unit", "_args"];
 _args params ["_magazineClass", "_vehicle"];
 TRACE_5("takeAmmo",_truck,_unit,_args,_magazineClass,_vehicle);
 
-([_magazineClass] call FUNC(getCaliber)) params ["_cal", "_idx"];
+([_magazineClass] call FUNC(getCaliber)) params ["", "_idx"];
 
 REARM_HOLSTER_WEAPON;
 

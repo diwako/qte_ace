@@ -8,7 +8,7 @@ if (isNull _attachedDummy) exitWith {ERROR_1("attachedDummy null %1",_attachedDu
 private _magazineClass = _attachedDummy getVariable QGVAR(magazineClass);
 if (isNil "_magazineClass") exitWith {ERROR_1("magazineClass nil %1",_attachedDummy);};
 
-([_magazineClass] call FUNC(getCaliber)) params ["_cal", "_idx"];
+([_magazineClass] call FUNC(getCaliber)) params ["", "_idx"];
 
 // Get magazines that can be rearmed
 private _needRearmMags = [_target] call FUNC(getNeedRearmMagazines);
@@ -57,7 +57,7 @@ if (qte_ace_rearm_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace
         _newFailure,
         {
             //IGNORE_PRIVATE_WARNING ["_player"];
-            param [0] params ["_target", "_unit"];
+            param [0] params ["_target"];
             _player distance _target <= GVAR(distance);
         },
         _rearmTime,
@@ -76,7 +76,7 @@ if (qte_ace_rearm_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace
         format [localize LSTRING(RearmAction), getText(configOf _target >> "displayName"), _magazineDisplayName],
         {
             //IGNORE_PRIVATE_WARNING ["_player"];
-            param [0] params ["_target", "_unit"];
+            param [0] params ["_target"];
             _player distance _target <= GVAR(distance);
         },
         ["isnotinside"]

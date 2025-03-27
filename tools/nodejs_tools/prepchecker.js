@@ -22,6 +22,13 @@ const ignoreFiles = [
   "addons/cargo/functions/fnc_deployConfirm.sqf",
   "addons/cargo/functions/fnc_startLoadIn.sqf",
   "addons/cargo/functions/fnc_startUnload.sqf",
+  "addons/rearm/functions/fnc_grabAmmo.sqf",
+  "addons/rearm/functions/fnc_rearm.sqf",
+  "addons/rearm/functions/fnc_rearmEntireVehicle.sqf",
+  "addons/rearm/functions/fnc_storeAmmo.sqf",
+  "addons/rearm/functions/fnc_takeAmmo.sqf",
+  "addons/rearm/functions/fnc_grabAmmoSuccess.sqf",
+  "addons/rearm/functions/fnc_storeAmmoSuccess.sqf",
 ];
 const ignoredFiles = [];
 
