@@ -35,7 +35,7 @@ if (GVAR(interactionParadrop)) exitWith {
             if (!qte_ace_cargo_mustBeCompleted && {_maxTime > 0 && {_elapsedTime >= _maxTime}}) then {
                 [QGVAR(paradropItem), _aceArgs select 0] call CBA_fnc_localEvent;
                 true
-            } else  {
+            } else {
                 _aceArgs params ["", "", "", "_errorCode"];
                 if (_errorCode == 3) then { // show warning if we failed because of flight conditions
                     [LSTRING(unlevelFlightWarning)] call EFUNC(common,displayTextStructured);
@@ -144,7 +144,7 @@ if ([_item, GVAR(interactionVehicle), _unit] call FUNC(canUnloadItem)) then {
             if (!qte_ace_cargo_mustBeCompleted && {_maxTime > 0 && {_elapsedTime >= _maxTime}}) then {
                 ["ace_unloadCargo", _aceArgs] call CBA_fnc_localEvent;
                 true
-            } else  {
+            } else {
                 // ace cargo does nothing on fail
                 false
             };

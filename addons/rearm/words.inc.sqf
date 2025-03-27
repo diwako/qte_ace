@@ -1,0 +1,22 @@
+[
+    "BOX",
+    "BOXES",
+    "NET",
+    "BELTS",
+    "STOCKPILE",
+    "GRENADES",
+    "APFSD",
+    "HEDP",
+    "HEDP",
+    "50CAL",
+    "756MM",
+    "SMOKE",
+    "TOW",
+    "MISSILE",
+    "ROCKET",
+    "AMMO",
+    "AMMUNITION",
+    "PEW PEW",
+    "THUMP",
+    "COUNTERMEASURES"
+]

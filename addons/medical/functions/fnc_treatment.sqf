@@ -204,7 +204,7 @@ if (!_isInZeus && {qte_ace_medical_enable} && {!cba_quicktime_qteShorten} && {_s
             [_aceArgs, _maxTime] call qte_ace_medical_fnc_handleSurgicalKit;
             [_aceArgs, _elapsedTime, _maxTime, 0] call FUNC(treatmentSuccess);
             true
-        } else  {
+        } else {
             [_aceArgs, _elapsedTime, _maxTime, 3] call FUNC(treatmentFailure);
             false
         };

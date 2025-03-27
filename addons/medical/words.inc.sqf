@@ -38,5 +38,6 @@
     "VELOCITY WOUND",
     "VIRUS",
     "VISCOSITY",
-    "WOUND"
+    "WOUND",
+    "BONESETTER"
 ]

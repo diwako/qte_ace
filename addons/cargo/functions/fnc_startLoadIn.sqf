@@ -54,7 +54,7 @@ if ([_item, _vehicle] call FUNC(canLoadItemIn)) then {
 
                 ["ace_loadCargo", _aceArgs] call CBA_fnc_localEvent;
                 true
-            } else  {
+            } else {
                 TRACE_1("load fail",_aceArgs);
                 _aceArgs params ["_item", "_vehicle"];
 
