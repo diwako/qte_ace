@@ -35,7 +35,7 @@ if (!isNull GVAR(itemPreviewObject) && {[GVAR(selectedItem), GVAR(interactionVeh
             if (!qte_ace_cargo_mustBeCompleted && {_maxTime > 0 && {_elapsedTime >= _maxTime}}) then {
                 ["ace_unloadCargo", _aceArgs] call CBA_fnc_localEvent;
                 true
-            } else  {
+            } else {
                 // ace cargo does nothing on fail
                 false
             };

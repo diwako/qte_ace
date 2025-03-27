@@ -83,7 +83,7 @@ if (qte_ace_magazinerepack_enable && {!cba_quicktime_qteShorten} && {_sequence <
             };
             [_aceArgs, _elapsedTime, _maxTime, 0] call FUNC(magazineRepackFinish);
             true
-        } else  {
+        } else {
             [_aceArgs, _elapsedTime, _maxTime, 3] call FUNC(magazineRepackFinish);
             false
         };

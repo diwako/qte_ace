@@ -259,7 +259,7 @@ if (qte_ace_repair_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ac
             };
             [_aceArgs] call DFUNC(repair_success);
             true
-        } else  {
+        } else {
             [_aceArgs] call DFUNC(repair_failure);
             false
         };
