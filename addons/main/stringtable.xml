@@ -165,5 +165,11 @@
             <English>When enabled QTE is not timed</English>
             <French>Lorsque la fonction QTE est activée, elle n'est pas chronométrée.</French>
         </Key>
+        <Key ID="STR_QTE_ACE_main_bannedWords">
+            <English>Banned words</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_bannedWords_desc">
+            <English>Words in array format, which you do not wish to see in a QTE.</English>
+        </Key>
     </Package>
 </Project>

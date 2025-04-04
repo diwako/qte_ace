@@ -2245,7 +2245,7 @@
     "NEWSLETTER",
     "NIBBLE",
     "NICHOLA",
-    "NICK COCK",
+    "NICE COCK",
     "NICKEL",
     "NICOLAI",
     "NIGHT",

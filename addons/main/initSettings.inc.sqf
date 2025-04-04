@@ -64,3 +64,18 @@
     [[0, 1, 2], [localize "str_a3_cfguigrids_gui_variables_grid_center_0", LSTRING(qte_position_bottom), LSTRING(qte_position_top)], 0],
     false
 ] call CBA_fnc_addSetting;
+
+[
+    QGVAR(bannedWords),
+    "EDITBOX",
+    [LSTRING(bannedWords), LSTRING(bannedWords_desc)],
+    LSTRING(Category),
+    "[""coolexample1"",""coolexample2""]",
+    false,
+    {
+        params ["_value"];
+        private _list = (_value splitString "[,""']") apply {toUpper trim _x};
+        GVAR(bannedWordsArr) = (_list arrayIntersect _list) - [""];
+    },
+    true
+] call CBA_fnc_addSetting;
