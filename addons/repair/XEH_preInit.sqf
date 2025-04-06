@@ -5,11 +5,11 @@ ADDON = false;
 #include "initSettings.inc.sqf"
 
 private _moduleWords = call compileScript [QPATHTOF(words.inc.sqf)];
+_moduleWords = [_moduleWords] call EFUNC(main,filterWordList);
 _moduleWords append _moduleWords;
 _moduleWords append _moduleWords;
 _moduleWords append _moduleWords;
-private _words = (+EGVAR(main,words)) + _moduleWords;
-GVAR(words) = [_words] call EFUNC(main,filterWordList);
+GVAR(words) = (+EGVAR(main,words)) + _moduleWords;
 
 GVAR(progressFncCache) = createHashMap;
 GVAR(actionsWithProgress) = ["PatchWheel", "FullRepair"];

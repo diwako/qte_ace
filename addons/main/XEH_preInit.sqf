@@ -12,10 +12,14 @@ _soundsConfig = _soundsConfig arrayIntersect _soundsConfig;
 _soundsConfig sort true;
 GVAR(availableSounds) = [LSTRING(no_sound)] + _soundsConfig;
 
-GVAR(words) = call compileScript [QPATHTOF(words.inc.sqf)];
-
 #include "initSettings.inc.sqf"
-private _list = (GVAR(bannedWords) splitString "[,""']") apply {toUpper trim _x};
-GVAR(bannedWordsArr) = (_list arrayIntersect _list) - [""];
+
+private _negativeList = (GVAR(bannedWords) splitString "[,""']") apply {toUpper trim _x};
+GVAR(bannedWordsArr) = (_negativeList arrayIntersect _negativeList) - [""];
+
+private _positiveList = (GVAR(addedWords) splitString "[,""']") apply {toUpper trim _x};
+_positiveList = (_positiveList arrayIntersect _positiveList) - [""];
+private _words = (call compileScript [QPATHTOF(words.inc.sqf)]) + _positiveList;
+GVAR(words) = [_words] call FUNC(filterWordList);
 
 ADDON = true;

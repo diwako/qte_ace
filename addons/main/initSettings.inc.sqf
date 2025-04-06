@@ -79,3 +79,14 @@
     },
     true
 ] call CBA_fnc_addSetting;
+
+[
+    QGVAR(addedWords),
+    "EDITBOX",
+    [LSTRING(addedWords), LSTRING(addedWords_desc)],
+    LSTRING(Category),
+    "[]",
+    false,
+    {},
+    true
+] call CBA_fnc_addSetting;

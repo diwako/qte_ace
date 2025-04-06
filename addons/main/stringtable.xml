@@ -171,5 +171,11 @@
         <Key ID="STR_QTE_ACE_main_bannedWords_desc">
             <English>Words in array format, which you do not wish to see in a QTE.</English>
         </Key>
+        <Key ID="STR_QTE_ACE_main_addedWords">
+            <English>Added words</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_addedWords_desc">
+            <English>Words in array format, which you want to see added to the QTEs.</English>
+        </Key>
     </Package>
 </Project>
