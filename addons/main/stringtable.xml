@@ -167,15 +167,19 @@
         </Key>
         <Key ID="STR_QTE_ACE_main_bannedWords">
             <English>Banned words</English>
+            <French>Mots interdits</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_bannedWords_desc">
             <English>Words in array format, which you do not wish to see in a QTE.</English>
+            <French>Mots sous forme de tableau, que vous ne souhaitez pas voir dans un QTE.</French>          
         </Key>
         <Key ID="STR_QTE_ACE_main_addedWords">
             <English>Added words</English>
+            <French>Ajouter des mots</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_addedWords_desc">
             <English>Words in array format, which you want to see added to the QTEs.</English>
+            <French>Mots sous forme de tableau, que vous souhaitez voir ajoutés aux QTE.</French>
         </Key>
     </Package>
 </Project>
