@@ -179,7 +179,7 @@
         </Key>
         <Key ID="STR_QTE_ACE_main_addedWords_desc">
             <English>Words in array format, which you want to see added to the QTEs.</English>
-            <French>Mots sous forme de tableau, que vous ne souhaitez pas voir dans un QTE.</French>
+            <French>Mots sous forme de tableau, que vous souhaitez voir ajoutés aux QTE.</French>
         </Key>
     </Package>
 </Project>
