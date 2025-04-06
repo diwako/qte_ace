@@ -9,3 +9,4 @@ PREP(qteProgress);
 PREP(qteWin);
 PREP(runQTE);
 PREP(generateWordsQTE);
+PREP(filterWordList);

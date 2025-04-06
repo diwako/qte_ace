@@ -9,6 +9,7 @@ _moduleWords append _moduleWords;
 _moduleWords append _moduleWords;
 _moduleWords append _moduleWords;
 _moduleWords append _moduleWords;
-GVAR(words) = (+EGVAR(main,words)) + _moduleWords;
+private _words = (+EGVAR(main,words)) + _moduleWords;
+GVAR(words) = [_words] call EFUNC(main,filterWordList);
 
 ADDON = true;
