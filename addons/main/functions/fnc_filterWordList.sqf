@@ -8,7 +8,6 @@ private _listUpper = if (_makeUpperCompare) then {
     +_list
 };
 
-private _listCopy = +_list;
 {
     private _word = _x;
     private _index = _listUpper findIf {_word in _x};
@@ -18,4 +17,4 @@ private _listCopy = +_list;
     };
 } forEach _badWords;
 
-_listCopy
+_listUpper
