@@ -14,15 +14,19 @@ _display displayAddEventHandler ["KeyDown", {
         case 39: { // DIK_SEMICOLON
             ["M"] call CBA_fnc_keyPressedQTE;
         };
+        case DIK_UP;
         case DIK_UPARROW: {
             ["↑"] call CBA_fnc_keyPressedQTE;
         };
+        case DIK_DOWN;
         case DIK_DOWNARROW: {
             ["↓"] call CBA_fnc_keyPressedQTE;
         };
+        case DIK_RIGHT;
         case DIK_RIGHTARROW: {
             ["→"] call CBA_fnc_keyPressedQTE;
         };
+        case DIK_LEFT;
         case DIK_LEFTARROW: {
             ["←"] call CBA_fnc_keyPressedQTE;
         };
@@ -100,6 +104,17 @@ _display displayAddEventHandler ["KeyDown", {
         case DIK_ADD;
         case DIK_DECIMAL;
         case DIK_NUMPADEQUALS;
+        case DIK_NUMPADSLASH;
+        case 181; // num slash german and french
+        case DIK_NUMPADPERIOD;
+        case DIK_NUMPADPLUS;
+        case DIK_NUMPADMINUS;
+        case DIK_HOME;
+        case DIK_PRIOR;
+        case DIK_NEXT;
+        case DIK_END;
+        case DIK_INSERT;
+        case DIK_DELETE;
         case DIK_LSHIFT;
         case DIK_RSHIFT;
         case DIK_ESCAPE;
