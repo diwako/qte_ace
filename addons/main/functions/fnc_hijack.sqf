@@ -14,18 +14,23 @@ _display displayAddEventHandler ["KeyDown", {
         case 39: { // DIK_SEMICOLON
             ["M"] call CBA_fnc_keyPressedQTE;
         };
+        case DIK_UP;
         case DIK_UPARROW: {
             ["↑"] call CBA_fnc_keyPressedQTE;
         };
+        case DIK_DOWN;
         case DIK_DOWNARROW: {
             ["↓"] call CBA_fnc_keyPressedQTE;
         };
+        case DIK_RIGHT;
         case DIK_RIGHTARROW: {
             ["→"] call CBA_fnc_keyPressedQTE;
         };
+        case DIK_LEFT;
         case DIK_LEFTARROW: {
             ["←"] call CBA_fnc_keyPressedQTE;
         };
+        case DIK_UNDERLINE;
         case DIK_SPACE: {
             [" "] call CBA_fnc_keyPressedQTE;
         };
@@ -58,6 +63,58 @@ _display displayAddEventHandler ["KeyDown", {
         case DIK_F14;
         case DIK_F15;
         case DIK_TAB;
+        case DIK_NEXTTRACK;
+        case DIK_MUTE;
+        case DIK_CALCULATOR;
+        case DIK_PLAYPAUSE;
+        case DIK_MEDIASTOP;
+        case DIK_VOLUMEDOWN;
+        case DIK_VOLUMEUP;
+        case DIK_WEBHOME;
+        case DIK_SYSRQ;
+        case DIK_PAUSE;
+        case DIK_APPS;
+        case DIK_POWER;
+        case DIK_SLEEP;
+        case DIK_WAKE;
+        case DIK_WEBSEARCH;
+        case DIK_WEBFAVORITES;
+        case DIK_WEBREFRESH;
+        case DIK_WEBSTOP;
+        case DIK_WEBFORWARD;
+        case DIK_WEBBACK;
+        case DIK_MYCOMPUTER;
+        case DIK_MAIL;
+        case DIK_MEDIASELECT;
+        case DIK_AT;
+        case DIK_COLON;
+        case DIK_MINUS;
+        case DIK_EQUALS;
+        case DIK_LBRACKET;
+        case DIK_RBRACKET;
+        case DIK_APOSTROPHE;
+        case DIK_GRAVE;
+        case DIK_BACKSLASH;
+        case DIK_COMMA;
+        case DIK_PERIOD;
+        case DIK_SLASH;
+        case DIK_MULTIPLY;
+        case DIK_NUMPADSTAR;
+        case DIK_SUBTRACT;
+        case DIK_ADD;
+        case DIK_DECIMAL;
+        case DIK_NUMPADEQUALS;
+        case DIK_NUMPADSLASH;
+        case 181; // num slash german and french
+        case DIK_NUMPADPERIOD;
+        case DIK_NUMPADPLUS;
+        case DIK_NUMPADMINUS;
+        case DIK_HOME;
+        case DIK_PRIOR;
+        case DIK_NEXT;
+        case DIK_END;
+        case DIK_INSERT;
+        case DIK_DELETE;
         case DIK_LSHIFT;
         case DIK_RSHIFT;
         case DIK_ESCAPE;
