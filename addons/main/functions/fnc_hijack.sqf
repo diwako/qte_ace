@@ -8,6 +8,12 @@ _display displayAddEventHandler ["KeyDown", {
     };
 
     switch (_key) do {
+        // French keyboard support, for some reason their M is at the semicolon key
+        // also means the german Ö is now an M, oh well...
+        // if only it was possible to detect the keyboard layout
+        case 39: { // DIK_SEMICOLON
+            ["M"] call CBA_fnc_keyPressedQTE;
+        };
         case DIK_UPARROW: {
             ["↑"] call CBA_fnc_keyPressedQTE;
         };
@@ -36,6 +42,33 @@ _display displayAddEventHandler ["KeyDown", {
             private _translated = (([_key] call CBA_fnc_localizeKey) splitString " ") select 0;
             [_translated] call CBA_fnc_keyPressedQTE
         };
+        case DIK_F1;
+        case DIK_F2;
+        case DIK_F3;
+        case DIK_F4;
+        case DIK_F5;
+        case DIK_F6;
+        case DIK_F7;
+        case DIK_F8;
+        case DIK_F9;
+        case DIK_F10;
+        case DIK_F11;
+        case DIK_F12;
+        case DIK_F13;
+        case DIK_F14;
+        case DIK_F15;
+        case DIK_TAB;
+        case DIK_LSHIFT;
+        case DIK_RSHIFT;
+        case DIK_ESCAPE;
+        case DIK_BACK;
+        case DIK_RETURN;
+        case DIK_NUMPADENTER;
+        case DIK_LMENU;
+        case DIK_CAPITAL;
+        case DIK_NUMLOCK;
+        case DIK_SCROLL;
+        case DIK_RMENU;
         case DIK_BACKSPACE;
         case DIK_CAPSLOCK;
         case DIK_LCONTROL;
