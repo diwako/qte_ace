@@ -5,6 +5,7 @@ ADDON = false;
 #include "initSettings.inc.sqf"
 
 private _moduleWords = call compileScript [QPATHTOF(words.inc.sqf)];
+_moduleWords = [_moduleWords] call EFUNC(main,filterWordList);
 _moduleWords append _moduleWords;
 _moduleWords append _moduleWords;
 _moduleWords append _moduleWords;
