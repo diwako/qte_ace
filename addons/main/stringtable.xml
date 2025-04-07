@@ -181,5 +181,20 @@
             <English>Words in array format, which you want to see added to the QTEs.</English>
             <French>Mots sous forme de tableau, que vous souhaitez voir ajoutés aux QTE.</French>
         </Key>
+        <Key ID="STR_QTE_ACE_main_arrowStyle">
+            <English>Arrow style</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_arrowStyle_desc">
+            <English>Style the arrow QTEs are in</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_arrowStyle_arrowsCharacters">
+            <English>Arrows + Characters</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_arrowStyle_arrows">
+            <English>Arrows</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_arrowStyle_characters">
+            <English>Characters</English>
+        </Key>
     </Package>
 </Project>

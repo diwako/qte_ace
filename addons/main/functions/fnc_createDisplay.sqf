@@ -110,6 +110,8 @@ private _arrowRowNum = 0;
 private _walker = 0;
 
 private _arrows = [];
+private _isArrowStyle = "arrows" in GVAR(arrowStyle);
+private _isArrowCharStyle = "arrowsCharacters" isEqualTo GVAR(arrowStyle);
 for "_i" from 1 to _length do {
     _walker = _walker + 1;
     if (_i>1 && ((_i-1) mod _maxArrowsPerRow) == 0) then {
@@ -120,15 +122,37 @@ for "_i" from 1 to _length do {
     private _ctrl = controlNull;
     private _curSeq = _qteSequence select (_i - 1);
     if (_curSeq in "↑↓→←") then {
-        _ctrl = _display ctrlCreate ["RscPicture", -1, _ctrlGrp];
-        switch (_curSeq) do {
-            case "↑": { _ctrl ctrlSetText QPATHTOF(ui\arrows\up.paa)  };
-            case "↓": { _ctrl ctrlSetText QPATHTOF(ui\arrows\down.paa) };
-            case "→": { _ctrl ctrlSetText QPATHTOF(ui\arrows\right.paa) };
-            case "←": { _ctrl ctrlSetText QPATHTOF(ui\arrows\left.paa)  };
-            default {};
+        if (_isArrowStyle) then {
+            _ctrl = _display ctrlCreate ["RscPicture", -1, _ctrlGrp];
+            if (_isArrowCharStyle) then {
+                _ctrl ctrlSetPosition [_xPos, _arrowY + (_arrowRowNum * (_arrowHeight + _arrowY)), _arrowWidth, _arrowHeight];
+                switch (_curSeq) do {
+                    case "↑": { _ctrl ctrlSetText QPATHTOF(ui\arrows\up_char.paa)  };
+                    case "↓": { _ctrl ctrlSetText QPATHTOF(ui\arrows\down_char.paa) };
+                    case "→": { _ctrl ctrlSetText QPATHTOF(ui\arrows\right_char.paa) };
+                    case "←": { _ctrl ctrlSetText QPATHTOF(ui\arrows\left_char.paa)  };
+                    default {};
+                };
+            } else {
+                switch (_curSeq) do {
+                    case "↑": { _ctrl ctrlSetText QPATHTOF(ui\arrows\up.paa)  };
+                    case "↓": { _ctrl ctrlSetText QPATHTOF(ui\arrows\down.paa) };
+                    case "→": { _ctrl ctrlSetText QPATHTOF(ui\arrows\right.paa) };
+                    case "←": { _ctrl ctrlSetText QPATHTOF(ui\arrows\left.paa)  };
+                    default {};
+                };
+            };
+        } else {
+            _ctrl = _display ctrlCreate ["RscStructuredText", -1, _ctrlGrp];
+            _ctrl ctrlSetPosition [_xPos, _arrowY + (_arrowRowNum * (_arrowHeight + _arrowY)), _charWidth, _charHeight];
+            switch (_curSeq) do {
+                case "↑": { _ctrl ctrlSetStructuredText parseText "<t size='1.8' font='PuristaBold'>W</t>" };
+                case "↓": { _ctrl ctrlSetStructuredText parseText "<t size='1.8' font='PuristaBold'>S</t>" };
+                case "→": { _ctrl ctrlSetStructuredText parseText "<t size='1.8' font='PuristaBold'>D</t>" };
+                case "←": { _ctrl ctrlSetStructuredText parseText "<t size='1.8' font='PuristaBold'>A</t>" };
+                default {};
+            };
         };
-        _ctrl ctrlSetPosition [_xPos, _arrowY + (_arrowRowNum * (_arrowHeight + _arrowY)), _arrowWidth, _arrowHeight];
     } else {
         _ctrl = _display ctrlCreate ["RscStructuredText", -1, _ctrlGrp];
         switch (_curSeq) do {
