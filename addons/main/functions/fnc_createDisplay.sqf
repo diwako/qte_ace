@@ -1,5 +1,5 @@
 #include "..\script_component.hpp"
-params [["_qteSequence", []], ["_maxTime", 0], ["_tries", 0], ["_text", ""]];
+params [["_qteSequence", []], ["_maxTime", 0], ["_tries", 0], ["_text", ""], ["_countdown", true]];
 private _display = findDisplay 46 createDisplay "RscDisplayEmpty";
 uiNamespace setVariable [QGVAR(qteDisplay), _display];
 
@@ -110,6 +110,8 @@ private _arrowRowNum = 0;
 private _walker = 0;
 
 private _arrows = [];
+private _isArrowStyle = "arrows" in GVAR(arrowStyle);
+private _isArrowCharStyle = "arrowsCharacters" isEqualTo GVAR(arrowStyle);
 for "_i" from 1 to _length do {
     _walker = _walker + 1;
     if (_i>1 && ((_i-1) mod _maxArrowsPerRow) == 0) then {
@@ -120,15 +122,37 @@ for "_i" from 1 to _length do {
     private _ctrl = controlNull;
     private _curSeq = _qteSequence select (_i - 1);
     if (_curSeq in "↑↓→←") then {
-        _ctrl = _display ctrlCreate ["RscPicture", -1, _ctrlGrp];
-        switch (_curSeq) do {
-            case "↑": { _ctrl ctrlSetText QPATHTOF(ui\arrows\up.paa)  };
-            case "↓": { _ctrl ctrlSetText QPATHTOF(ui\arrows\down.paa) };
-            case "→": { _ctrl ctrlSetText QPATHTOF(ui\arrows\right.paa) };
-            case "←": { _ctrl ctrlSetText QPATHTOF(ui\arrows\left.paa)  };
-            default {};
+        if (_isArrowStyle) then {
+            _ctrl = _display ctrlCreate ["RscPicture", -1, _ctrlGrp];
+            if (_isArrowCharStyle) then {
+                _ctrl ctrlSetPosition [_xPos, _arrowY + (_arrowRowNum * (_arrowHeight + _arrowY)), _arrowWidth, _arrowHeight];
+                switch (_curSeq) do {
+                    case "↑": { _ctrl ctrlSetText QPATHTOF(ui\arrows\up_char.paa)  };
+                    case "↓": { _ctrl ctrlSetText QPATHTOF(ui\arrows\down_char.paa) };
+                    case "→": { _ctrl ctrlSetText QPATHTOF(ui\arrows\right_char.paa) };
+                    case "←": { _ctrl ctrlSetText QPATHTOF(ui\arrows\left_char.paa)  };
+                    default {};
+                };
+            } else {
+                switch (_curSeq) do {
+                    case "↑": { _ctrl ctrlSetText QPATHTOF(ui\arrows\up.paa)  };
+                    case "↓": { _ctrl ctrlSetText QPATHTOF(ui\arrows\down.paa) };
+                    case "→": { _ctrl ctrlSetText QPATHTOF(ui\arrows\right.paa) };
+                    case "←": { _ctrl ctrlSetText QPATHTOF(ui\arrows\left.paa)  };
+                    default {};
+                };
+            };
+        } else {
+            _ctrl = _display ctrlCreate ["RscStructuredText", -1, _ctrlGrp];
+            _ctrl ctrlSetPosition [_xPos, _arrowY + (_arrowRowNum * (_arrowHeight + _arrowY)), _charWidth, _charHeight];
+            switch (_curSeq) do {
+                case "↑": { _ctrl ctrlSetStructuredText parseText "<t size='1.8' font='PuristaBold'>W</t>" };
+                case "↓": { _ctrl ctrlSetStructuredText parseText "<t size='1.8' font='PuristaBold'>S</t>" };
+                case "→": { _ctrl ctrlSetStructuredText parseText "<t size='1.8' font='PuristaBold'>D</t>" };
+                case "←": { _ctrl ctrlSetStructuredText parseText "<t size='1.8' font='PuristaBold'>A</t>" };
+                default {};
+            };
         };
-        _ctrl ctrlSetPosition [_xPos, _arrowY + (_arrowRowNum * (_arrowHeight + _arrowY)), _arrowWidth, _arrowHeight];
     } else {
         _ctrl = _display ctrlCreate ["RscStructuredText", -1, _ctrlGrp];
         switch (_curSeq) do {
@@ -144,33 +168,45 @@ for "_i" from 1 to _length do {
 _display setVariable [QGVAR(ctrlArrows), _arrows];
 
 if (_maxtime > 0) then {
+    private _waitBarWhite = _display ctrlCreate ["RscStructuredText", -1, _ctrlGrp];
+    private _waitBarCountDown = _display ctrlCreate ["RscStructuredText", -1, _ctrlGrp];
+
+    if (_countdown) then {
+        _waitBarWhite ctrlSetBackgroundColor [
+            profileNamespace getVariable ['GUI_BCG_RGB_R',0.77],
+            profileNamespace getVariable ['GUI_BCG_RGB_G',0.51],
+            profileNamespace getVariable ['GUI_BCG_RGB_B',0.08],
+            profileNamespace getVariable ['GUI_BCG_RGB_A',0.8]
+        ];
+        _waitBarWhite ctrlSetPosition [0, 5 * _gridHeight * _rows + _gridHeight, _boxWidth, _gridHeight];
+        _waitBarWhite ctrlCommit 0;
+        _waitBarWhite ctrlSetPosition [0, 5 * _gridHeight * _rows + _gridHeight, 0, _gridHeight];
+
+        _waitBarCountDown ctrlSetBackgroundColor [
+            profileNamespace getVariable ['igui_error_RGB_R',0.77],
+            profileNamespace getVariable ['igui_error_RGB_G',0.51],
+            profileNamespace getVariable ['igui_error_RGB_B',0.08],
+            profileNamespace getVariable ['igui_error_RGB_A',0.8]
+        ];
+        _waitBarCountDown ctrlSetPosition [0, 5 * _gridHeight * _rows + _gridHeight, _boxWidth, _gridHeight];
+        _waitBarCountDown ctrlSetFade 1;
+        _waitBarCountDown ctrlCommit 0;
+        _waitBarCountDown ctrlSetPosition [0, 5 * _gridHeight * _rows + _gridHeight, 0, _gridHeight];
+    } else {
+        _waitBarWhite ctrlSetPosition [0, 5 * _gridHeight * _rows + _gridHeight, _boxWidth, _gridHeight];
+        _waitBarWhite ctrlSetBackgroundColor [0, 0, 0, 0.75];
+        _waitBarWhite ctrlCommit 0;
+
+        _waitBarCountDown ctrlSetBackgroundColor [0, 1, 0, 0.5];
+        _waitBarCountDown ctrlSetPosition [0, 5 * _gridHeight * _rows + _gridHeight, 0, _gridHeight];
+        _waitBarCountDown ctrlCommit 0;
+        _waitBarCountDown ctrlSetPosition [0, 5 * _gridHeight * _rows + _gridHeight, _boxWidth, _gridHeight];
+    };
+    _waitBarCountDown ctrlSetFade 0;
+    _waitBarWhite ctrlCommit _maxtime;
+    _waitBarCountDown ctrlCommit _maxtime;
+
     private _ctrlWait = _display ctrlCreate ["RscStructuredText", -1, _ctrlGrp];
-    _ctrlWait ctrlSetBackgroundColor [
-        profileNamespace getVariable ['GUI_BCG_RGB_R',0.77],
-        profileNamespace getVariable ['GUI_BCG_RGB_G',0.51],
-        profileNamespace getVariable ['GUI_BCG_RGB_B',0.08],
-        profileNamespace getVariable ['GUI_BCG_RGB_A',0.8]
-    ];
-    _ctrlWait ctrlSetPosition [0, 5 * _gridHeight * _rows + _gridHeight, _boxWidth, _gridHeight];
-    _ctrlWait ctrlCommit 0;
-    _ctrlWait ctrlSetPosition [0, 5 * _gridHeight * _rows + _gridHeight, 0, _gridHeight];
-    _ctrlWait ctrlCommit _maxtime;
-
-    _ctrlWait = _display ctrlCreate ["RscStructuredText", -1, _ctrlGrp];
-    _ctrlWait ctrlSetBackgroundColor [
-        profileNamespace getVariable ['igui_error_RGB_R',0.77],
-        profileNamespace getVariable ['igui_error_RGB_G',0.51],
-        profileNamespace getVariable ['igui_error_RGB_B',0.08],
-        profileNamespace getVariable ['igui_error_RGB_A',0.8]
-    ];
-    _ctrlWait ctrlSetPosition [0, 5 * _gridHeight * _rows + _gridHeight, _boxWidth, _gridHeight];
-    _ctrlWait ctrlSetFade 1;
-    _ctrlWait ctrlCommit 0;
-    _ctrlWait ctrlSetPosition [0, 5 * _gridHeight * _rows + _gridHeight, 0, _gridHeight];
-    _ctrlWait ctrlSetFade 0;
-    _ctrlWait ctrlCommit _maxtime;
-
-    _ctrlWait = _display ctrlCreate ["RscStructuredText", -1, _ctrlGrp];
     _ctrlWait ctrlSetPosition [0, 5 * _gridHeight * _rows + 2 * _gridHeight, _boxWidth, _arrowHeight];
     _ctrlWait ctrlSetStructuredText parseText format ["<t size='1' shadow='1' valign='middle'>%1</t>", _maxtime];
     _ctrlWait ctrlCommit 0;

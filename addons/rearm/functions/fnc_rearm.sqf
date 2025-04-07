@@ -65,7 +65,8 @@ if (qte_ace_rearm_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace
         [_target, _unit, _turretPath, _magazineCount, _magazineClass, (REARM_COUNT select _idx), _pylon],
         format [localize LSTRING(RearmAction), getText(configOf _target >> "displayName"), _magazineDisplayName],
         qte_ace_rearm_resetUponIncorrectInput,
-        ["isnotinside"]
+        ["isnotinside"],
+        qte_ace_rearm_mustBeCompleted
     ] call qte_ace_main_fnc_runQTE;
 } else {
     [

@@ -66,7 +66,8 @@ if (GVAR(interactionParadrop)) exitWith {
             [_item, GVAR(interactionVehicle)],
             format [LLSTRING(unloadingItem), [_item, true] call FUNC(getNameItem), getText (configOf GVAR(interactionVehicle) >> "displayName")],
             qte_ace_cargo_resetUponIncorrectInput,
-            ["isNotSwimming", "isNotInside"]
+            ["isNotSwimming", "isNotInside"],
+            qte_ace_cargo_mustBeCompleted
         ]] call CBA_fnc_execNextFrame;
     } else {
         // Start progress bar - paradrop
@@ -168,7 +169,8 @@ if ([_item, GVAR(interactionVehicle), _unit] call FUNC(canUnloadItem)) then {
             [_item, GVAR(interactionVehicle), _unit],
             format [LLSTRING(unloadingItem), [_item, true] call FUNC(getNameItem), getText (configOf GVAR(interactionVehicle) >> "displayName")],
             qte_ace_cargo_resetUponIncorrectInput,
-            ["isNotSwimming"]
+            ["isNotSwimming"],
+            qte_ace_cargo_mustBeCompleted
         ] call qte_ace_main_fnc_runQTE;
     } else {
         [

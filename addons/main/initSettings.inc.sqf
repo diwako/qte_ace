@@ -66,6 +66,15 @@
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(arrowStyle),
+    "LIST",
+    [LSTRING(arrowStyle), LSTRING(arrowStyle_desc)],
+    LSTRING(Category),
+    [["arrowsCharacters", "arrows", "characters"], [LSTRING(arrowstyle_arrowsCharacters), LSTRING(arrowstyle_arrows), LSTRING(arrowstyle_characters)], 0],
+    false
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(bannedWords),
     "EDITBOX",
     [LSTRING(bannedWords), LSTRING(bannedWords_desc)],

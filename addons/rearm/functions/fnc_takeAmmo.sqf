@@ -53,7 +53,8 @@ if (qte_ace_rearm_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace
         [_unit, _magazineClass, _truck, _vehicle],
         format [localize LSTRING(TakeAction), _magazineClass call FUNC(getMagazineName), _targetName],
         qte_ace_rearm_resetUponIncorrectInput,
-        ["isnotinside"]
+        ["isnotinside"],
+        qte_ace_rearm_mustBeCompleted
     ] call qte_ace_main_fnc_runQTE;
 } else {
     [
