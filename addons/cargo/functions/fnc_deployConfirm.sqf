@@ -59,7 +59,8 @@ if (!isNull GVAR(itemPreviewObject) && {[GVAR(selectedItem), GVAR(interactionVeh
             [GVAR(selectedItem), GVAR(interactionVehicle), _unit, [_position, _direction]],
             format [LLSTRING(unloadingItem), [GVAR(selectedItem), true] call FUNC(getNameItem), getText (configOf GVAR(interactionVehicle) >> "displayName")],
             qte_ace_cargo_resetUponIncorrectInput,
-            ["isNotSwimming"]
+            ["isNotSwimming"],
+            qte_ace_cargo_mustBeCompleted
         ] call qte_ace_main_fnc_runQTE;
     } else {
         [
