@@ -108,7 +108,8 @@ if (qte_ace_magazinerepack_enable && {!cba_quicktime_qteShorten} && {_sequence <
         [_magazineClassname, _startingAmmoCounts, _simEvents],
         (localize LSTRING(RepackingMagazine)),
         qte_ace_magazinerepack_resetUponIncorrectInput,
-        ["isNotInside", "isNotSwimming", "isNotInZeus"]
+        ["isNotInside", "isNotSwimming", "isNotInZeus"],
+        qte_ace_magazinerepack_mustBeCompleted
     ] call qte_ace_main_fnc_runQTE;
 } else {
     [

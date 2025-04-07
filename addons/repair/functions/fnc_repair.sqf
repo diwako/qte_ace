@@ -287,7 +287,8 @@ if (qte_ace_repair_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ac
         [_caller, _target, _hitPoint, _className, _items, _usersOfItems, _claimObjectsAvailable],
         _text,
         qte_ace_repair_resetUponIncorrectInput,
-        ["isNotSwimming", "isNotOnLadder"]
+        ["isNotSwimming", "isNotOnLadder"],
+        qte_ace_repair_mustBeCompleted
     ] call qte_ace_main_fnc_runQTE;
 } else {
     [

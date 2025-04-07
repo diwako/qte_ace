@@ -45,7 +45,8 @@ if (qte_ace_rearm_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace
         [_truck, _vehicle, _player],
         format [localize LSTRING(BasicRearmAction), getText(configOf _vehicle >> "displayName")],
         qte_ace_rearm_resetUponIncorrectInput,
-        ["isnotinside"]
+        ["isnotinside"],
+        qte_ace_rearm_mustBeCompleted
     ] call qte_ace_main_fnc_runQTE;
 } else {
     [

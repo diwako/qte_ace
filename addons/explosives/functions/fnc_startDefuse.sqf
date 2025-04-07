@@ -88,7 +88,8 @@ if (ACE_player != _unit) then {
                 [_unit,_target],
                 localize LSTRING(DefusingExplosive),
                 qte_ace_explosives_resetUponIncorrectInput,
-                ["isNotSwimming"]
+                ["isNotSwimming"],
+                qte_ace_explosives_mustBeCompleted
             ] call qte_ace_main_fnc_runQTE;
         } else {
             [_defuseTime, [_unit,_target], {(_this select 0) call FUNC(defuseExplosive)}, {}, (localize LSTRING(DefusingExplosive)), {true}, ["isNotSwimming"]] call EFUNC(common,progressBar);

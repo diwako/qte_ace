@@ -9,7 +9,8 @@ params [
     ["_args", []],
     ["_text", "", [""]],
     ["_resetUponIncorrectInput", true, [false]],
-    ["_aceExpections", []]
+    ["_aceExpections", []],
+    ["_countdown", true, [false]]
 ];
 private _sequence = [];
 switch (typeName _length) do {
@@ -28,7 +29,7 @@ GVAR(resetCount) = 0;
 
 private _argsDisplay = [_maxTime, _tries, _args, _success, _fail, _progress, _text, _aceExpections];
 
-private _display = [_sequence, _maxTime, _tries, _text] call FUNC(createDisplay);
+private _display = [_sequence, _maxTime, _tries, _text, _countdown] call FUNC(createDisplay);
 [_display] call FUNC(hijack);
 [_argsDisplay, nil, [], nil, false] call FUNC(qteDisplay);
 [

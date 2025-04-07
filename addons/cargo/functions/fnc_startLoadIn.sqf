@@ -93,7 +93,8 @@ if ([_item, _vehicle] call FUNC(canLoadItemIn)) then {
             [_item, _vehicle],
             format [LLSTRING(loadingItem), [_item, true] call FUNC(getNameItem), getText (configOf _vehicle >> "displayName")],
             qte_ace_cargo_resetUponIncorrectInput,
-            ["isNotSwimming"]
+            ["isNotSwimming"],
+            qte_ace_cargo_mustBeCompleted
         ] call qte_ace_main_fnc_runQTE;
     } else {
         [

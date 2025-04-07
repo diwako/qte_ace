@@ -238,7 +238,8 @@ if (!_isInZeus && {qte_ace_medical_enable} && {!cba_quicktime_qteShorten} && {_s
         [_medic, _patient, _bodyPart, _classname, _itemUser, _usedItem, _createLitter, _extraArgs],
         getText (_config >> "displayNameProgress"),
         qte_ace_medical_resetUponIncorrectInput,
-        ["isNotInside", "isNotSwimming", "isNotInZeus"]
+        ["isNotInside", "isNotSwimming", "isNotInZeus"],
+        qte_ace_medical_mustBeCompleted
     ] call qte_ace_main_fnc_runQTE;
 } else {
     [
