@@ -1,4 +1,9 @@
 #include "..\script_component.hpp"
+
+if (uiNamespace getVariable ["ace_interact_menu_cursorMenuOpened", false]) exitWith {
+    [FUNC(runQTE), _this] call CBA_fnc_execNextFrame;
+};
+
 params [
     ["_length", 5, [0, "", []]],
     ["_success", {}, [{}]],
