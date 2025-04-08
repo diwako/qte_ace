@@ -183,18 +183,23 @@
         </Key>
         <Key ID="STR_QTE_ACE_main_arrowStyle">
             <English>Arrow style</English>
+            <French>Style de flèche</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_arrowStyle_desc">
             <English>Style the arrow QTEs are in</English>
+            <French>Style des QTEs de flèches sont dans</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_arrowStyle_arrowsCharacters">
             <English>Arrows + Characters</English>
+            <French>Flèches + Personnages</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_arrowStyle_arrows">
             <English>Arrows</English>
+            <French>Flèches</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_arrowStyle_characters">
             <English>Characters</English>
+            <French>Personnages</French>
         </Key>
     </Package>
 </Project>
