@@ -1,6 +1,8 @@
 #include "..\script_component.hpp"
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"
 params [["_display", displayNull]];
+
+_display call (uiNamespace getVariable "CBA_events_fnc_initDisplayCurator");
 _display displayAddEventHandler ["KeyDown", {
     params ["", "_key"];
     if (_key == DIK_ESCAPE && {alive player}) exitWith {
