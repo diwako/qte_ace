@@ -49,6 +49,10 @@ if !(isNull _tries) then {
 
 [{
     _this closeDisplay 0;
+    GVAR(qteRunning) = false;
+    if (GVAR(qteQueue) isNotEqualTo []) then {
+        (GVAR(qteQueue) deleteAt 0) call FUNC(runQTE);
+    };
 }, _display, 0.26] call CBA_fnc_waitAndExecute;
 
 inGameUISetEventHandler ["PrevAction", "false"];

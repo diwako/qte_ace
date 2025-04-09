@@ -1,5 +1,9 @@
 #include "..\script_component.hpp"
 
+if (GVAR(qteRunning)) exitWith {
+    GVAR(qteQueue) pushBack _this;
+};
+
 if (uiNamespace getVariable ["ace_interact_menu_cursorMenuOpened", false]) exitWith {
     [FUNC(runQTE), _this] call CBA_fnc_execNextFrame;
 };
@@ -31,6 +35,7 @@ if (_sequence isEqualTo []) exitWith {
 };
 
 GVAR(resetCount) = 0;
+GVAR(qteRunning) = true;
 
 private _argsDisplay = [_maxTime, _tries, _args, _success, _fail, _progress, _text, _aceExpections];
 
