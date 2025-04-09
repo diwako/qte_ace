@@ -4,6 +4,8 @@ ADDON = false;
 
 GVAR(escPressed) = false;
 GVAR(resetCount) = 0;
+GVAR(qteRunning) = false;
+GVAR(qteQueue) = [];
 
 private _soundsConfig = 'true' configClasses (configFile >> "CfgSounds") apply {configName _x};
 private _soundsMission = 'true' configClasses (missionConfigFile >> "CfgSounds") apply {configName _x};
