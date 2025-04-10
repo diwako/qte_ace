@@ -135,8 +135,8 @@ for "_i" from 1 to _length do {
     if (_curSeq in "↑↓→←") then {
         if (_isArrowStyle) then {
             _ctrl = _display ctrlCreate ["RscPicture", -1, _ctrlGrp];
+            _ctrl ctrlSetPosition [_xPos, _arrowY + (_arrowRowNum * (_arrowHeight + _arrowY)), _arrowWidth, _arrowHeight];
             if (_isArrowCharStyle) then {
-                _ctrl ctrlSetPosition [_xPos, _arrowY + (_arrowRowNum * (_arrowHeight + _arrowY)), _arrowWidth, _arrowHeight];
                 switch (_curSeq) do {
                     case "↑": { _ctrl ctrlSetText QPATHTOF(ui\arrows\up_char.paa)  };
                     case "↓": { _ctrl ctrlSetText QPATHTOF(ui\arrows\down_char.paa) };
