@@ -1,7 +1,18 @@
 #include "..\script_component.hpp"
 params [["_qteSequence", []], ["_maxTime", 0], ["_tries", 0], ["_text", ""], ["_countdown", true]];
-private _display = findDisplay 46 createDisplay "RscDisplayEmpty";
-uiNamespace setVariable [QGVAR(qteDisplay), _display];
+
+// close any other dialog
+closeDialog 0;
+// close inventory
+private _inventoryDisplay = uiNamespace getVariable ["RscDisplayInventory", displayNull];
+if !(isNull _inventoryDisplay) then {
+    _inventoryDisplay closeDisplay 0;
+};
+
+// create dialog from config instead of hooking into the mission display
+// this prevents modded a3 keybinds from passing through during the hijack
+createDialog QGVAR(qteDisplay);
+private _display = uiNamespace getVariable QGVAR(qteDisplay);
 
 private _background = _display ctrlCreate ["CtrlMapEmpty", -1];
 _background ctrlSetPosition [safeZoneX, safeZoneY, safeZoneW, safeZoneH];
