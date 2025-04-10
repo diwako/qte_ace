@@ -186,9 +186,13 @@ if (!_isInZeus && {qte_ace_medical_enable} && {!cba_quicktime_qteShorten} && {_s
             EGVAR(medical_gui,pendingReopen) = qte_ace_medical_medicMenuWasOpen;
             EGVAR(medical_gui,target) = qte_ace_medical_target;
         };
-        _args params [["_maxTime", 0], "", "_aceArgs"];
-        [_aceArgs, _maxTime] call qte_ace_medical_fnc_handleSurgicalKit;
-        [_aceArgs, _maxTime, _maxTime, 0] call FUNC(treatmentSuccess);
+        [{
+            !qte_ace_main_qteRunning
+        }, {
+            params [["_maxTime", 0], "", "_aceArgs"];
+            [_aceArgs, _maxTime] call qte_ace_medical_fnc_handleSurgicalKit;
+            [_aceArgs, _maxTime, _maxTime, 0] call FUNC(treatmentSuccess);
+        }, _args] call CBA_fnc_waitUntilAndExecute;
         true
     };
 
@@ -201,8 +205,14 @@ if (!_isInZeus && {qte_ace_medical_enable} && {!cba_quicktime_qteShorten} && {_s
         };
         _args params ["_maxTime", "", "_aceArgs"];
         if (!qte_ace_medical_mustBeCompleted && {_maxTime > 0 && {_elapsedTime >= _maxTime}}) then {
-            [_aceArgs, _maxTime] call qte_ace_medical_fnc_handleSurgicalKit;
-            [_aceArgs, _elapsedTime, _maxTime, 0] call FUNC(treatmentSuccess);
+            [{
+                !qte_ace_main_qteRunning
+            }, {
+                params ["_args", "_elapsedTime"];
+                _args params ["_maxTime", "", "_aceArgs"];
+                [_aceArgs, _maxTime] call qte_ace_medical_fnc_handleSurgicalKit;
+                [_aceArgs, _elapsedTime, _maxTime, 0] call FUNC(treatmentSuccess);
+            }, _this] call CBA_fnc_waitUntilAndExecute;
             true
         } else {
             [_aceArgs, _elapsedTime, _maxTime, 3] call FUNC(treatmentFailure);
