@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="qte_ace">
+    <Package name="overheating">
+        <Key ID="STR_QTE_ACE_overheating_Category">
+            <English>QTE ACE - Overheating</English>
+        </Key>
+    </Package>
+</Project>

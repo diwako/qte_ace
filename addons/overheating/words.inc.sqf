@@ -1,0 +1,22 @@
+[
+    "JAM",
+    "OVERHEATED",
+    "HOT",
+    "BRASS",
+    "SHELL",
+    "STUCK",
+    "LODGED",
+    "CHAMBER",
+    "SPRING",
+    "EJECTION",
+    "MALFUNCTION",
+    "SQUIB",
+    "HANG FIRE",
+    "DUD",
+    "FEED",
+    "SLAMFIRE",
+    "EXTRACT",
+    "FTE",
+    "DOUBLE FEED",
+    "BLAME PATTY"
+]
