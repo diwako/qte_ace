@@ -29,6 +29,7 @@ const ignoreFiles = [
   "addons/rearm/functions/fnc_takeAmmo.sqf",
   "addons/rearm/functions/fnc_grabAmmoSuccess.sqf",
   "addons/rearm/functions/fnc_storeAmmoSuccess.sqf",
+  "addons/overheating/functions/fnc_clearJam.sqf",
 ];
 const ignoredFiles = [];
 
