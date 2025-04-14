@@ -16,6 +16,7 @@ This means if you ignore the QTEs or disable it, you wait the same amount as you
 - Explosives
 - Magazine Repacking
 - Medical
+- Overheating/Weapon jamming
 - Rearm
 - Repair
 
