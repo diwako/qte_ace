@@ -9,6 +9,21 @@ if !(isNull _inventoryDisplay) then {
     _inventoryDisplay closeDisplay 0;
 };
 
+// check for dynamic groups framework
+if (!isNil QDYN_GROUP_KEY_VAR && isNil QGVAR(dynGroupKeys)) then {
+    private _missionDisplay = findDisplay 46;
+    if !(isNull _missionDisplay) then {
+        // Reset event handlers
+        DYN_GROUP_KEY_VAR params ["_down", "_up"];
+        _missionDisplay displayRemoveEventHandler ["KeyDown", _down];
+        _missionDisplay displayRemoveEventHandler ["KeyUp", _up];
+        _down = _missionDisplay displayAddEventHandler ["KeyDown", format ["if !(%1) then {['OnKeyDown', _this] call BIS_fnc_dynamicGroups;}", QGVAR(qteRunning)]];
+        _up = _missionDisplay displayAddEventHandler ["KeyUp", format ["if !(%1) then {['OnKeyUp', _this] call BIS_fnc_dynamicGroups;}", QGVAR(qteRunning)]];
+        GVAR(dynGroupKeys) = [_down, _up];
+        DYN_GROUP_KEY_VAR = GVAR(dynGroupKeys);
+    };
+};
+
 // create dialog from config instead of hooking into the mission display
 // this prevents modded a3 keybinds from passing through during the hijack
 createDialog QGVAR(qteDisplay);
