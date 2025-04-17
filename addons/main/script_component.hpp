@@ -15,4 +15,4 @@
 #include "\z\qte_ace\addons\main\script_macros.hpp"
 
 #define DYN_GROUP_KEY_VAR BIS_dynamicGroups_key
-#define QDYN_GROUP_KEY_VAR QUOTE(BIS_dynamicGroups_key)
+#define QDYN_GROUP_KEY_VAR QUOTE(DYN_GROUP_KEY_VAR)
