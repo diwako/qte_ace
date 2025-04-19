@@ -223,7 +223,8 @@ if (!_isInZeus && {qte_ace_medical_enable} && {!cba_quicktime_qteShorten} && {_s
     qte_ace_medical_progressFncCache getOrDefault [_className, _callbackProgress, true];
     private _newProgress = {
         params ["_args"];
-        _args params ["", "", "", "_classname"];
+        _args params ["_medic", "_patient", "", "_classname"];
+        if !(_medic distance _patient < 5 || {vehicle _medic == vehicle _patient}) exitWith {false};
         if (_className in qte_ace_medical_surgicalKits && {qte_ace_medical_noTimer || qte_ace_medical_mustBeCompleted}) exitWith {true};
         _this call (qte_ace_medical_progressFncCache get _className)
     };
