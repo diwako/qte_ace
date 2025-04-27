@@ -196,5 +196,14 @@
         <Key ID="STR_QTE_ACE_main_arrowStyle_characters">
             <English>Characters</English>
         </Key>
+        <Key ID="STR_QTE_ACE_main_arrowColor_desc">
+            <English>Sets the color of an element of an arrow type QTE</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_pendingCharactersDim">
+            <English>Dimmed Pending Chars</English>
+        </Key>
+        <Key ID="STR_QTE_ACE_main_pendingCharactersDim_desc">
+            <English>When enabled, upcomming or pending characters in a QTE are dimmed. When disabled it is reversed.</English>
+        </Key>
     </Package>
 </Project>

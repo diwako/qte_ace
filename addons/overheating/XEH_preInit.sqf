@@ -21,9 +21,7 @@ GVAR(clearJamLogicSuccess) = {
     if (_unit getVariable [format ["ace_overheating_%1_jamType", _weapon], "None"] isEqualTo "Dud") then {
         private _ammo = _unit ammo _weapon;
         _unit setAmmo [_weapon, _ammo - 1];
-        systemChat "asd2";
     };
-    systemChat "asd3";
 
     _unit setVariable [format ["ace_overheating_%1_jamType", _weapon], "None"];
 
