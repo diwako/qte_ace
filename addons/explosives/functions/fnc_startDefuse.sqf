@@ -84,7 +84,7 @@ if (ACE_player != _unit) then {
                 _newFailure,
                 {true},
                 _defuseTime,
-                floor qte_ace_explosives_tries,
+                round qte_ace_explosives_tries,
                 [_unit,_target],
                 localize LSTRING(DefusingExplosive),
                 qte_ace_explosives_resetUponIncorrectInput,

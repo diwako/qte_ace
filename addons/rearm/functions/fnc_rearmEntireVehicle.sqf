@@ -41,7 +41,7 @@ if (qte_ace_rearm_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace
             _player distance _vehicle <= GVAR(distance);
         },
         _rearmTime,
-        floor qte_ace_rearm_tries,
+        round qte_ace_rearm_tries,
         [_truck, _vehicle, _player],
         format [localize LSTRING(BasicRearmAction), getText(configOf _vehicle >> "displayName")],
         qte_ace_rearm_resetUponIncorrectInput,

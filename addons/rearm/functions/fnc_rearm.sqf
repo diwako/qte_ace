@@ -61,7 +61,7 @@ if (qte_ace_rearm_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace
             _player distance _target <= GVAR(distance);
         },
         _rearmTime,
-        floor qte_ace_rearm_tries,
+        round qte_ace_rearm_tries,
         [_target, _unit, _turretPath, _magazineCount, _magazineClass, (REARM_COUNT select _idx), _pylon],
         format [localize LSTRING(RearmAction), getText(configOf _target >> "displayName"), _magazineDisplayName],
         qte_ace_rearm_resetUponIncorrectInput,

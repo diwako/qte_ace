@@ -49,7 +49,7 @@ if (qte_ace_rearm_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace
         _newFailure,
         {true},
         _rearmTime,
-        floor qte_ace_rearm_tries,
+        round qte_ace_rearm_tries,
         [_unit, _magazineClass, _truck, _vehicle],
         format [localize LSTRING(TakeAction), _magazineClass call FUNC(getMagazineName), _targetName],
         qte_ace_rearm_resetUponIncorrectInput,

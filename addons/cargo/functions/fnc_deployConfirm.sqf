@@ -55,7 +55,7 @@ if (!isNull GVAR(itemPreviewObject) && {[GVAR(selectedItem), GVAR(interactionVeh
                 [_item, _vehicle, _unit, false, true] call FUNC(canUnloadItem)
             },
             _duration,
-            floor qte_ace_cargo_tries,
+            round qte_ace_cargo_tries,
             [GVAR(selectedItem), GVAR(interactionVehicle), _unit, [_position, _direction]],
             format [LLSTRING(unloadingItem), [GVAR(selectedItem), true] call FUNC(getNameItem), getText (configOf GVAR(interactionVehicle) >> "displayName")],
             qte_ace_cargo_resetUponIncorrectInput,

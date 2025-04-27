@@ -104,7 +104,7 @@ if (qte_ace_magazinerepack_enable && {!cba_quicktime_qteShorten} && {_sequence <
         _newFailure,
         _newProgress,
         _totalTime,
-        floor qte_ace_magazinerepack_tries,
+        round qte_ace_magazinerepack_tries,
         [_magazineClassname, _startingAmmoCounts, _simEvents],
         (localize LSTRING(RepackingMagazine)),
         qte_ace_magazinerepack_resetUponIncorrectInput,

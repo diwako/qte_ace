@@ -63,7 +63,7 @@ if (qte_ace_rearm_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace
         _newFailure,
         {true},
         _rearmTime,
-        floor qte_ace_rearm_tries,
+        round qte_ace_rearm_tries,
         [_dummy, _unit],
         localize LSTRING(GrabAction),
         qte_ace_rearm_resetUponIncorrectInput,

@@ -63,7 +63,7 @@ if (_weapon in _jammedWeapons) then {
             _newFailure,
             _newProgress,
             _delay,
-            floor qte_ace_overheating_tries,
+            round qte_ace_overheating_tries,
             [_unit, _weapon, _jammedWeapons],
             localize LSTRING(UnjamWeapon),
             qte_ace_overheating_resetUponIncorrectInput,

@@ -89,7 +89,7 @@ if ([_item, _vehicle] call FUNC(canLoadItemIn)) then {
                 (_this select 0) call FUNC(canLoadItemIn)
             },
             _duration,
-            floor qte_ace_cargo_tries,
+            round qte_ace_cargo_tries,
             [_item, _vehicle],
             format [LLSTRING(loadingItem), [_item, true] call FUNC(getNameItem), getText (configOf _vehicle >> "displayName")],
             qte_ace_cargo_resetUponIncorrectInput,
