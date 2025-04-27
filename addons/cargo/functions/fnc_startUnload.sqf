@@ -62,7 +62,7 @@ if (GVAR(interactionParadrop)) exitWith {
                 true
             },
             _duration,
-            floor qte_ace_cargo_tries,
+            round qte_ace_cargo_tries,
             [_item, GVAR(interactionVehicle)],
             format [LLSTRING(unloadingItem), [_item, true] call FUNC(getNameItem), getText (configOf GVAR(interactionVehicle) >> "displayName")],
             qte_ace_cargo_resetUponIncorrectInput,
@@ -165,7 +165,7 @@ if ([_item, GVAR(interactionVehicle), _unit] call FUNC(canUnloadItem)) then {
                 [_item, _vehicle, _unit, false, true] call FUNC(canUnloadItem)
             },
             _duration,
-            floor qte_ace_cargo_tries,
+            round qte_ace_cargo_tries,
             [_item, GVAR(interactionVehicle), _unit],
             format [LLSTRING(unloadingItem), [_item, true] call FUNC(getNameItem), getText (configOf GVAR(interactionVehicle) >> "displayName")],
             qte_ace_cargo_resetUponIncorrectInput,

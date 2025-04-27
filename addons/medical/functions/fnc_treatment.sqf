@@ -245,7 +245,7 @@ if (!_isInZeus && {qte_ace_medical_enable} && {!cba_quicktime_qteShorten} && {_s
         _newFailure,
         _newProgress,
         _treatmentTime,
-        floor qte_ace_medical_tries,
+        round qte_ace_medical_tries,
         [_medic, _patient, _bodyPart, _classname, _itemUser, _usedItem, _createLitter, _extraArgs],
         getText (_config >> "displayNameProgress"),
         qte_ace_medical_resetUponIncorrectInput,
