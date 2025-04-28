@@ -64,6 +64,15 @@ _display displayAddEventHandler ["KeyDown", {
         case DIK_F13;
         case DIK_F14;
         case DIK_F15;
+        case DIK_F16;
+        case DIK_F17;
+        case DIK_F18;
+        case DIK_F19;
+        case DIK_F20;
+        case DIK_F21;
+        case DIK_F22;
+        case DIK_F23;
+        case DIK_F24;
         case DIK_TAB;
         case DIK_NEXTTRACK;
         case DIK_MUTE;
