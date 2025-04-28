@@ -2498,7 +2498,7 @@
     "PHEASANT",
     "PHEUMONIUM",
     "PHLEGM",
-    "PHLIADELPHIA",
+    "PHILADELPHIA",
     "PHONE",
     "PHONETIC",
     "PHONY",
