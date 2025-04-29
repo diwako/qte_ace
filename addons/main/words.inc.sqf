@@ -2153,7 +2153,6 @@
     "MOON",
     "MOONLIGHTING",
     "MOOSE",
-    "MOPRPHINE",
     "MORAY",
     "MORNING",
     "MORONIC",
