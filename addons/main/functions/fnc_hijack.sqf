@@ -4,9 +4,15 @@ params [["_display", displayNull]];
 
 _display call (uiNamespace getVariable "CBA_events_fnc_initDisplayCurator");
 _display displayAddEventHandler ["KeyDown", {
-    params ["", "_key"];
+    params ["", "_key", "_shift", "_ctrl", "_alt"];
     if (_key == DIK_ESCAPE && {alive player}) exitWith {
         GVAR(escPressed) = true;
+    };
+
+    if (GVAR(debug)) then {
+        private _entry = [_key, [_key] call CBA_fnc_localizeKey];
+        systemChat format ["%1: %2 | SHIFT: %3 | CTRL: %4 | ALT: %5", _entry select 0, _entry select 1, _shift, _ctrl, _alt];
+        GVAR(debugArray) pushBackUnique _entry;
     };
 
     switch (_key) do {
@@ -77,6 +83,7 @@ _display displayAddEventHandler ["KeyDown", {
         case DIK_NEXTTRACK;
         case DIK_MUTE;
         case DIK_CALCULATOR;
+        case 128; // 0x80 general media key
         case DIK_PLAYPAUSE;
         case DIK_MEDIASTOP;
         case DIK_VOLUMEDOWN;
