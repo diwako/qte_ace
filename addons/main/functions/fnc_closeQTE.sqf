@@ -58,3 +58,7 @@ if !(isNull _tries) then {
 inGameUISetEventHandler ["PrevAction", "false"];
 inGameUISetEventHandler ["NextAction", "false"];
 inGameUISetEventHandler ["Action", "false"];
+
+if (GVAR(debug)) then {
+    copyToClipboard ([GVAR(debugArray)] call CBA_fnc_encodeJSON);
+};

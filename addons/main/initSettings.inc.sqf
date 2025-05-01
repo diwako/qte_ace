@@ -144,3 +144,12 @@
     [1, 1, 0.67, 1],
     false
 ] call CBA_fnc_addSetting;
+
+[
+    QGVAR(debug),
+    "CHECKBOX",
+    format ["%1 %2", localize "str_enable_controller", localize "str_a3_cfgsounds_debug0"],
+    [LSTRING(Category), format ["3: %1", localize "str_a3_cfgsounds_debug0"]],
+    false,
+    false
+] call CBA_fnc_addSetting;
