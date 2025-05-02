@@ -283,7 +283,7 @@ if (qte_ace_repair_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ac
         _newFailure,
         _newProgress,
         _repairTime,
-        floor qte_ace_repair_tries,
+        round qte_ace_repair_tries,
         [_caller, _target, _hitPoint, _className, _items, _usersOfItems, _claimObjectsAvailable],
         _text,
         qte_ace_repair_resetUponIncorrectInput,

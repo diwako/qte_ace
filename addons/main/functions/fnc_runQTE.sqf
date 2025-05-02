@@ -37,6 +37,10 @@ if (_sequence isEqualTo []) exitWith {
 GVAR(resetCount) = 0;
 GVAR(qteRunning) = true;
 
+if (GVAR(debug)) then {
+    GVAR(debugArray) = [];
+};
+
 private _argsDisplay = [_maxTime, _tries, _args, _success, _fail, _progress, _text, _aceExpections];
 
 private _display = [_sequence, _maxTime, _tries, _text, _countdown] call FUNC(createDisplay);

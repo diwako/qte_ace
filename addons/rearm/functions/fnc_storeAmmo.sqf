@@ -49,7 +49,7 @@ if (qte_ace_rearm_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace
         _newFailure,
         {true},
         _rearmTime,
-        floor qte_ace_rearm_tries,
+        round qte_ace_rearm_tries,
         [_unit, _truck, _attachedDummy],
         format [localize LSTRING(StoreAmmoAction), _magazineClass call FUNC(getMagazineName), getText(configOf _truck >> "displayName")],
         qte_ace_rearm_resetUponIncorrectInput,
