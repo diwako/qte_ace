@@ -3,6 +3,7 @@
     <Package name="overheating">
         <Key ID="STR_QTE_ACE_overheating_Category">
             <English>QTE ACE - Overheating</English>
+            <French>QTE ACE - Surchauffe</French>
         </Key>
     </Package>
 </Project>

@@ -3,6 +3,7 @@
     <Package name="cargo">
         <Key ID="STR_QTE_ACE_Rearm_Category">
             <English>QTE ACE - Rearm</English>
+            <French>QTE ACE - Réarmement</French>
         </Key>
     </Package>
 </Project>
