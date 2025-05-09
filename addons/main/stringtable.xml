@@ -203,12 +203,15 @@
         </Key>
         <Key ID="STR_QTE_ACE_main_arrowColor_desc">
             <English>Sets the color of an element of an arrow type QTE</English>
+            <French>Définit la couleur d'un élément d'une flèche de type QTE</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_pendingCharactersDim">
             <English>Dimmed Pending Chars</English>
+            <French>Caractères en attente atténués</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_pendingCharactersDim_desc">
             <English>When enabled, upcomming or pending characters in a QTE are dimmed. When disabled it is reversed.</English>
+            <French>Lorsqu'elle est activée, les caractères en cours ou en attente dans un QTE sont atténués. Lorsqu'il est désactivé, il est inversé.</French>
         </Key>
     </Package>
 </Project>
