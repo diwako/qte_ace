@@ -183,27 +183,35 @@
         </Key>
         <Key ID="STR_QTE_ACE_main_arrowStyle">
             <English>Arrow style</English>
+            <French>Style de flèche</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_arrowStyle_desc">
             <English>Style the arrow QTEs are in</English>
+            <French>Style des QTEs de flèches sont dans</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_arrowStyle_arrowsCharacters">
             <English>Arrows + Characters</English>
+            <French>Flèches + Personnages</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_arrowStyle_arrows">
             <English>Arrows</English>
+            <French>Flèches</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_arrowStyle_characters">
             <English>Characters</English>
+            <French>Personnages</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_arrowColor_desc">
             <English>Sets the color of an element of an arrow type QTE</English>
+            <French>Définit la couleur d'un élément d'une flèche de type QTE</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_pendingCharactersDim">
             <English>Dimmed Pending Chars</English>
+            <French>Caractères en attente atténués</French>
         </Key>
         <Key ID="STR_QTE_ACE_main_pendingCharactersDim_desc">
             <English>When enabled, upcomming or pending characters in a QTE are dimmed. When disabled it is reversed.</English>
+            <French>Lorsqu'elle est activée, les caractères en cours ou en attente dans un QTE sont atténués. Lorsqu'il est désactivé, il est inversé.</French>
         </Key>
     </Package>
 </Project>
