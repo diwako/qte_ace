@@ -17,15 +17,6 @@ include = [
 ]
 exclude = ["*.psd", "*.png", "*.tga"]
 
-[hemtt.launch.default]
-workshop = [
-    "450814997", # CBA_A3's Workshop ID
-    "463939057", # ACE3
-    "2369477168", # Advanced developer tools
-    # "2020940806", # KAT medical
-]
-parameters = ["-world=empty"]
-
 [hemtt.signing]
 authority = "qte_ace"
 
@@ -38,3 +29,18 @@ options.only-lang = true
 [lints.sqf.var_all_caps]
 enabled = true
 options.ignore = []
+
+[hemtt.launch.default]
+workshop = [
+    "450814997",  # CBA_A3's Workshop ID
+    "463939057",  # ACE3
+    "2369477168", # Advanced developer tools
+    "2073243184", # String table viewer
+]
+parameters = ["-world=empty"]
+
+[hemtt.launch.kat]
+extends = "default"
+workshop = [
+    "2020940806", # KAT medical
+]
