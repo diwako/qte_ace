@@ -8,3 +8,8 @@ class CfgFunctions {
         };
     };
 };
+class ACE_Medical_StateMachine {
+    class Unconscious {
+        onState = QPATHTOF(functions\fnc_handleStateUnconsciousHijack.sqf);
+    };
+};
