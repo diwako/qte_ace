@@ -17,7 +17,7 @@ private _engineerRequired = if (isNumber (_config >> "requiredEngineer")) then {
 };
 if !([_caller, _engineerRequired] call FUNC(isEngineer)) exitWith {false};
 
-if ((isEngineOn _target) && {GVAR(autoShutOffEngineWhenStartingRepair)}) then {
+if ((isEngineOn _target) && GVAR(autoShutOffEngineWhenStartingRepair)) then {
     [QEGVAR(common,engineOn), [_target, false], _target] call CBA_fnc_targetEvent;
 };
 if ((isEngineOn _target) && {!GVAR(autoShutOffEngineWhenStartingRepair)}) exitWith {
