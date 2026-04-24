@@ -61,7 +61,7 @@ if (_weapon in _jammedWeapons) then {
             _sequence,
             _newSuccess,
             _newFailure,
-            _newProgress,
+            nil,
             _delay,
             round qte_ace_overheating_tries,
             [_unit, _weapon, _jammedWeapons],

@@ -7,6 +7,7 @@ params ["_medic", "_patient", "_bodyPart", "_classname", "_extraArgs"];
 // Delay by a frame if cursor menu is open to prevent progress bar failing
 if (uiNamespace getVariable [QEGVAR(interact_menu,cursorMenuOpened), false]) exitWith {
     [FUNC(treatment), _this] call CBA_fnc_execNextFrame;
+    nil
 };
 
 if !(call FUNC(canTreat)) exitWith {false};
@@ -179,7 +180,7 @@ if (_callbackProgress isEqualTo {}) then {
 ["ace_treatmentStarted", [_medic, _patient, _bodyPart, _classname, _itemUser, _usedItem, _createLitter, _extraArgs]] call CBA_fnc_localEvent;
 
 private _sequence = floor (_treatmentTime * qte_ace_medical_difficulty) max 1;
-if (!_isInZeus && {qte_ace_medical_enable} && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace_main_maxLengthRounded}) then {
+if (!_isInZeus && qte_ace_medical_enable && {!cba_quicktime_qteShorten} && {_sequence <= qte_ace_main_maxLengthRounded}) then {
     private _newSuccess = {
         params ["_args", "_elapsedTime"];
         if (qte_ace_medical_medicMenuWasOpen) then {
