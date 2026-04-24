@@ -1,4 +1,4 @@
-.hemttprivatekey
+*.hemttprivatekey
 *.biprivatekey
 
 hemtt\.exe
@@ -20,3 +20,4 @@ keys/*
 *.dll
 
 .vscode/*
+privatekeypassword.txt

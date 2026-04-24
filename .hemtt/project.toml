@@ -17,8 +17,8 @@ include = [
 ]
 exclude = ["*.psd", "*.png", "*.tga"]
 
-[hemtt.signing]
-authority = "qte_ace"
+[signing]
+private_key_hash = "2121e58cca4bc5dfdec594e30f0c50729ee5c98c"
 
 [hemtt.release]
 folder = "qte_ace"
