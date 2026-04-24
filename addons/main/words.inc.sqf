@@ -1447,6 +1447,7 @@
     "GORGONZOLA",
     "GORILLA",
     "GORILLAS",
+    "GORMLESS",
     "GOSH",
     "GOSSAMER",
     "GOSSIP",
