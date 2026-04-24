@@ -131,6 +131,7 @@
     "ANT",
     "ANTELOPE",
     "ANTENNA",
+    "ANTIDISESTABLISHMENTARIANISM",
     "ANTS",
     "ANY HOLE IS A GOAL",
     "AOK",
